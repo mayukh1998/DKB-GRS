@@ -1,0 +1,109 @@
+#left-pane{
+                  height: 100%;
+                  float: left;
+                  width: 31%;
+                  text-align: left;
+                  padding: 200px 92px 0px 0px ;
+              }
+            #right-pane{
+                  width: 50%;
+                  height: 100%;
+                  float: right;
+                  width: 56%;
+                  
+                  
+                 }  
+            #text1{
+                     text-align: left;
+                     margin-bottom: 1em;
+                     padding: 50px 0px 0px 0px;
+                 }
+                 
+     form {
+                                border: 5px solid #f1f1f1;
+                                }
+                                input[type=text], input[type=password],input[type=email],input[type=number] {
+                                height: 30px;
+                                width: 60%;
+                                padding: 16px 8px 16px 8px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                box-sizing: border-box;
+                                }
+                                label {
+                                     text-align: left;
+                                      display: inline-block;
+                                      margin-bottom: 8px;
+                                      padding: 0px 0px 0px 0px;
+                                    }
+                                
+                                select {
+                                height: auto;
+                                width: 60%;
+                                padding: 16px 8px 16px 8px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                box-sizing: border-box; 
+                                    }    
+
+                                button {
+                                background-color:  #3333cc;
+                                color: white;
+                                padding: 14px 0;
+                                margin: 10px 0;
+                                border: none;
+                                cursor: grabbing;
+                                width: 60%;
+                                letter-spacing: 0.20em;
+                                text-decoration: none;
+                                text-transform: uppercase;
+                                font-weight: 400;
+                                font-size: 0.85em;
+                                }
+                                h1 {
+                                text-align:center;
+                                fone-size:18;
+                                }
+                                button:hover {
+                                opacity: 0.8;
+                                }
+                                .formcontainer {
+                                text-align: center;
+                                width: 500px;
+                                margin: 24px 50px 12px;
+                                }
+                                .container22 {
+                                padding: 16px 0;
+                                text-align:center;
+                                height: auto;
+                                }
+
+                                span.psw {
+                                float: right;
+                                padding-top: 0;
+                                padding-left: 15px;
+                                }
+                                textarea {
+                                resize: none;
+                                width: 300px;
+                                height: 65px;
+                                overflow: hidden;
+                                
+                                }
+                                /* Change styles for span on extra small screens */
+                                @media screen and (max-width: 300px) {
+                                span.psw {
+                                display: block;
+                                float: none;
+                                }
+                               }
+                               .radio-inline{
+                                   cursor: pointer;
+                               }
+                        
+                               .disable{
+                                pointer-events:none;
+                                background: #e6e6e6;
+                                   }
