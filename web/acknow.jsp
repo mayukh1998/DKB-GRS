@@ -5,8 +5,9 @@
     try {
 			// Construct data
 			String apiKey = "apikey=" + "EXW1uyd9D9s-aqWngJiMVc6JKVx98z6VjDhHbFVEBO";
+                        //new key : D74sYy/S+Ro-VF2TYNdaUukVKGt5fSyz5CAna89h7Y	
 			String message = "&message=" + "Your Issue has been resolved. Please login to the portal to give your feedback.";
-			String sender = "&sender=" + "Apex_DKB";
+			String sender = "&sender=" + "TXTLCL";
 			String numbers = "&numbers=" + phn;
 			
 			// Send data
