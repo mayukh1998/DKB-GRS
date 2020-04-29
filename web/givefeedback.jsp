@@ -29,7 +29,7 @@
         <%}
     %>
  </head>   
-<body>
+<body onload="select()">
 <div id="wrapper">
 	<div id="header-wrapper">
 		<div id="header" class="container">
@@ -72,6 +72,12 @@
                             <div class="title">
                                 
                                 <%  
+                                    String wd = request.getParameter("wd");
+                                    String iid = request.getParameter("id");
+                                    if(wd == null)
+                                    {
+                                        wd=" ";
+                                    }
                                     String username = session.getAttribute("username").toString();
                                     ResultSet rs=null;
                                     ResultSet rs1=null;
@@ -118,7 +124,7 @@
                              
                                 <label for="issue_id"><strong>Select Issue:</strong></label>
                            <br>
-                          <select name="issue_id" id="issue_id" required>
+                          <select name="issue_id" id="issue_id" onchange="getval()" required>
                                         <option class="placeholder" selected disabled value="">Select</option>
                                         <%while(rs1.next()){ %>
                                             <option value="<%=rs1.getString(1)%>"> <%=rs1.getString(1) %> <%=rs1.getString(2) %></option>
@@ -130,7 +136,7 @@
                           <br>    
                             <label for="minfeed"><strong>Work Done:</strong></label>
                            <br>
-                           <textarea id="minfeed" rows="4" cols="50" name="minfeed" disabled="disabled" ></textarea>
+                           <textarea id="minfeed" rows="4" cols="50" name="minfeed" disabled="disabled" ><%=wd%></textarea>
                               <br>
                               
                                   <br>
@@ -203,15 +209,19 @@
 	<p>&copy; Team Apex IEM</p>
 </div>
                                         
-                                        <script>
-                                            $('select').on('change', function() {
-                                                //getting value from select
-                                                var select = $(this).val();
-                                                //splitting both value 
-                                                var v = select.split(",");
-                                                //getting second value after ,
-                                                $("#minfeed").text(v[0]);
-                                              });
+                                        <script type="text/javascript">
+                                                function select(){
+                                                    if(<%=iid%>!==null)
+                                                    {
+                                                        document.getElementById("issue_id").value=<%=iid%>;
+                                                     }
+                                                    }
+                                                
+                                                function getval(){
+                                                    var isuid = document.getElementById("issue_id").value;
+                                                    location.href= "getselect.jsp?id="+isuid;
+                                                }       
+                                            </script>
                                         </script>
                                         
 </body>
