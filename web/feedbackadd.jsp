@@ -44,7 +44,7 @@
 
                             else    {
 
-                            response.sendRedirect("createIssue.jsp");
+                            response.sendRedirect("givefeedback.jsp");
                     
                         }
 

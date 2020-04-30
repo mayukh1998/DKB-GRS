@@ -27,8 +27,13 @@
            <script> alert('Failed');
             </script>
         <%}
-    %>
- </head>   
+        else if(request.getParameter("m2") != null) 
+        {%>
+           <script> alert('Feedback Given Successfully... Not Satisfied. So Issue Reopened');
+            </script>
+        <%}%>        
+</head>   
+
 <body onload="select()">
 <div id="wrapper">
 	<div id="header-wrapper">
@@ -107,7 +112,6 @@
                                 <h2> <%=s4%> </h2>
                                 <h2>Give Feedback</h2>
                             </div>
-                            <div id="text1">
                                 
                               
                  <div class="formcontainer">            
@@ -116,10 +120,10 @@
                       <hr/>
                       <div class="container22">
                           <label for="name"><strong>Name:</strong></label>
-                          <br></br>
+                          <br>
                           <input type="text" id="name" value=" <%=s4%>" name="name" class="disable">
                               
-                           
+                           <br>
                                 <br>
                              
                                 <label for="issue_id"><strong>Select Issue:</strong></label>
@@ -134,11 +138,13 @@
                                <br>
                                    <p><small><i>Cannot find your issue.<a href="assignissue.jsp" rel="nofollow"> Click here</a></i></small></p>
                           <br>    
+                              <br>
                             <label for="minfeed"><strong>Work Done:</strong></label>
                            <br>
                            <textarea id="minfeed" rows="4" cols="50" name="minfeed" disabled="disabled" ><%=wd%></textarea>
                               <br>
                               
+                              <br>
                                   <br>
                                    <label for="feedback"><strong>Rate your Experience:</strong></label>
                                    <br>
@@ -158,6 +164,7 @@
                                       <input type="radio" name="feedback" value="5" checked>5
                                     </label>
                                        <br>
+                                           <p><small><i>*If Rating is less than 2, the issue will be reopened.</i></small></p>
                               <br>
                            <label for="feed"><strong>Additional Feedback:</strong></label>
                            <br>
@@ -167,6 +174,8 @@
                       <button type="submit">Give Feedback</button>
                       
                       <button type="reset">Reset</button>
+                      
+                              <br>
                  </form>
         
                  </div>
@@ -198,9 +207,8 @@
                     </div>
 	</div>
                 
-</div>
-
                                         
+    
                                         
                                         
                                         
