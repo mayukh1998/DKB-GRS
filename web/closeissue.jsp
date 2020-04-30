@@ -1,6 +1,6 @@
 <%@page import="java.sql.*"%>
 <%@ page import = "java.text.SimpleDateFormat" %>
-<%@page import="connection.dbconnect"%>
+<%@page import="connection.issue"%>
 <%@ page session="true" %>
 
 <html>
@@ -20,7 +20,7 @@ String open="open";
 String close="close";
 String s1,s2,s3,s4,s5,s6,s7;
                                     try{    
-                                       Connection con=dbconnect.getConnection();
+                                       Connection con=issue.getConnection();
                                        Statement st = con.createStatement();
                                        Statement stmt = con.createStatement();
                                        rs=st.executeQuery("select * from issue where issue_id = '"+stat+"'");

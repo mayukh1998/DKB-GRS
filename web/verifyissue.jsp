@@ -1,5 +1,5 @@
 <%@page import="java.sql.*"%>
-<%@page import="connection.dbconnect"%>
+<%@page import="connection.issue"%>
 <%@ page session="true" %>
 
 <html>
@@ -22,7 +22,7 @@
                         String second ="";
                         String cid ="";
                         String c ="c";
-                        Connection con=dbconnect.getConnection();
+                        Connection con=issue.getConnection();
                         Statement st = con.createStatement();
                         ResultSet rs = null;
                         rs = st.executeQuery("select * from issue where issue_id = '"+id+"'"); 

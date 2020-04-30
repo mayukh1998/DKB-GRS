@@ -1,6 +1,6 @@
 <%@page import="java.sql.*"%>
 <%@ page import = "java.text.SimpleDateFormat" %>
-<%@page import="connection.dbconnect"%>
+<%@page import="connection.issue"%>
 <%@ page session="true" %>
 
 <html>
@@ -25,7 +25,7 @@
     {
                     try{
 
-                        Connection con=dbconnect.getConnection();
+                        Connection con=issue.getConnection();
                         Statement st = con.createStatement();
                         Statement stmt = con.createStatement();
 

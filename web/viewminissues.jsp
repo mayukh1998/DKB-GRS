@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <%@page import="java.sql.*"%>
-    <%@page import="connection.dbconnect"%>
+    <%@page import="connection.issue"%>
         <%@ page session="true" %>
             <html xmlns="http://www.w3.org/1999/xhtml">
 <script src="jquery-3.4.1.js" type="text/javascript"></script>
@@ -44,7 +44,7 @@
                                     String s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15;
 
                                     try{    
-                                       Connection con = dbconnect.getConnection();
+                                       Connection con = issue.getConnection();
                                        Statement st = con.createStatement();
                                        rs=st.executeQuery("select * from issue where issue_id ='"+issue_id+"'");     
                                        if ( rs.next() )

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <%@page import="java.sql.*"%>
-    <%@page import="connection.dbconnect"%>
+    <%@page import="connection.issue"%>
         <%@ page session="true" %>
             <html xmlns="http://www.w3.org/1999/xhtml">
             
@@ -121,7 +121,7 @@
                                     ResultSet rs1=null;
 
                                     try{    
-                                       Connection con = dbconnect.getConnection();
+                                       Connection con = issue.getConnection();
                                        Statement st2 = con.createStatement();
                                        rs1=st2.executeQuery("select * from issue where status <> 'close' And status <> 'assigned' And status <> 'resolved'");                        
                         %>

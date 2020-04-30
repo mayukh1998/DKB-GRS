@@ -1,5 +1,5 @@
 <%@page import="java.sql.*"%>
-<%@page import="connection.dbconnect"%>
+<%@page import="connection.issue"%>
 <%@ page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
@@ -84,7 +84,7 @@
                                     ResultSet rs2=null;
                                     String s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;
                                     try{    
-                                       Connection con=dbconnect.getConnection();
+                                       Connection con=issue.getConnection();
                                        Statement st = con.createStatement();
                                        rs=st.executeQuery("select * from user where user_name = '"+username+"'");
                                        
