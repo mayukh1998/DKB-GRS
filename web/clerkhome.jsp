@@ -20,13 +20,9 @@
                     alert('Login Success');
                 </script>
                 <% }
-        else 
-        {
-
-        }
+     
     %>
-
-                    <body>
+                 <body>
                         <div id="wrapper">
                             <div id="header-wrapper">
                                 <div id="header" class="container">
@@ -104,8 +100,7 @@
 
                                     </div>
                                     <%
-                                    String clerk_id = s1;  
-
+                                    String clerk_id = s1;
                                     session.setAttribute("clerk_id",clerk_id);
 }
 						con.close();
