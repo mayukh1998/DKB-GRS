@@ -1,6 +1,6 @@
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
-<%@ page session="true" %>
+<%@ page session="true" %> 
+<jsp:useBean id="connection" class="connection.Registration" scope="request" />
 
 <html>
 <head>
@@ -17,50 +17,20 @@
     
     if(un != "" || p != "" ||  dept != "" || n != "")
     {
-    
-                    try{
-
-                        Connection con=issue.getConnection();
-                        Statement st = con.createStatement();
-                        ResultSet rs = null;
-                        rs = st.executeQuery("select * from minister ORDER BY min_id DESC"); 
-                        if(rs.next()){
-                            k = rs.getInt(3);
-                            }
-                        k = k+1;
-
-                        PreparedStatement ps = con.prepareStatement("insert into minister values(?,?,?,?,?)");
-
-                        ps.setString(1,un); 
-                        ps.setString(2,p);
-                        ps.setInt(3,k);
-                        ps.setString(4,n);
-                        ps.setString(5,dept);
-
-                        int h = ps.executeUpdate();
-
-                if(h>=0){
-                out.println("User Registered Successfully. Now Login. ");
-                
+      int h =	connection.registerMinister(un,n,p,dept);
+         if(h>=0){
+                out.println("Minister Registered Successfully");
                 response.sendRedirect("addmin.jsp?m1="+k);    
                         }
-
-                else    {
+         else    {
                 response.sendRedirect("addmin.jsp?m2=Failed");
                         }
-
-                }
-                catch(Exception e1)
-                {
-                out.println(e1.getMessage());
-                }
     }
     else
     {
         
         response.sendRedirect("addmin.jsp");
     }
-
 %>
     
 </body>

@@ -1,0 +1,89 @@
+table {
+                                        border-collapse: collapse;
+                                        width: 100%;
+                                    }
+                                    
+                                    th {
+                                        padding: 15px;
+                                        margin-bottom: 1.5em;
+                                        cursor: pointer;
+                                    
+                                        background: #3333cc;
+                                        color: white;
+                                    }
+                                    td{
+                                        padding: 12px;
+                                        margin-bottom: 1.5em;
+                                        cursor: pointer;
+                                    }
+                                    
+                                    tr:nth-child(even) {
+                                        background-color: #f2f2f2;
+                                    }
+                                    
+                                    tr:hover {
+                                        background-color: #ebe4d1;
+                                    }
+                                    
+                                    #myInput {
+                                        background-image: url(images/searchicon.png);
+                                        /* Add a search icon to input */
+                                        background-position: 10px 12px;
+                                        /* Position the search icon */
+                                        background-repeat: no-repeat;
+                                        /* Do not repeat the icon image */
+                                        width: 90%;
+                                        /* Full-width */
+                                        font-size: 16px;
+                                        /* Increase font-size */
+                                        padding: 12px 20px 12px 40px;
+                                        /* Add some padding */
+                                        border: 1px solid #ddd;
+                                        /* Add a grey border */
+                                        margin-bottom: 12px;
+                                        /* Add some space below the input */
+                                    }
+                                    
+                                    button {
+                                        background-color: #3333cc;
+                                        color: white;
+                                        padding: 14px 0;
+                                        margin: 3px 0;
+                                        border: none;
+                                        cursor: pointer;
+                                        width: 95px;
+                                        letter-spacing: 0.20em;
+                                        text-decoration: none;
+                                        text-transform: uppercase;
+                                        font-size: 0.45em;
+                                    }
+                                    
+                                    button:hover {
+                                        opacity: 0.8;
+                                    }
+                                    input#issue_id{
+                                        border-top-style: hidden;
+                                        border-right-style: hidden;
+                                        border-left-style: hidden;
+                                        border-bottom-style: hidden;
+                                        text-align: center;
+                                        background-color: transparent;
+                                        font-size: 14px;
+                                        width: 100px;
+                                            }
+                                    select {
+                                        height: auto;
+                                        width: 100%;
+                                        padding: 14px 8px 14px 8px;
+                                        display: inline-block;
+                                        border: 1px solid #ccc;
+                                        box-sizing: border-box;
+                                    }
+                                    
+                                    select option:first-of-type {
+                                        display: none;
+                                    }
+                                    
+                                    .disable{
+                                        pointer-events:none;
+                                     }

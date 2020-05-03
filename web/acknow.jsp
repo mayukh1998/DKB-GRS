@@ -25,7 +25,6 @@
 			}
 			rd.close();
 			response.sendRedirect("minhome.jsp?m2=success");   
-                        
 		//	return stringBuffer.toString();
 		}
     catch (Exception e) {
@@ -34,9 +33,6 @@
 		//	return "Error "+e;
 		}
 
-    
-    
-    
     %>
 
 

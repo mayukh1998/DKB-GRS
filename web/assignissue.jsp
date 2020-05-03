@@ -1,13 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
+<%@page import="connection.Dbconnect"%>
 <%@ page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <%
         if (request.getParameter("m2") != null) {
         %>
-        <script> alert('Issue Assigned Successfully!');</script>
+        <script> alert('Issue Acquired Successfully!');</script>
            <% }
         else if(request.getParameter("m3") != null) 
                {
@@ -46,6 +45,7 @@
                     <div id="logo">
                         <h1><a href="https://www.didikebolo.com/en/">Didi Ke Bolo</a></h1>
                         <p>Grievance Redressal</p>
+                        
                     </div>
                 </div>
             </div>
@@ -61,6 +61,8 @@
             </div>
             <!-- end #menu --> 
             <div id="page" class="container">
+                <h2> Acquire Issue</h2>  
+                <br>
                 <div id="content">
                     <form action="verifyissue.jsp">
                         <div class="formcontainer">
@@ -71,7 +73,7 @@
                                 <input type="text" placeholder="Enter Issue ID" name="issue_id" required>
                                 <br>
                                 <br>
-                                <button type="submit">Assign Issue</button>    
+                                <button type="submit">Acquire Issue</button>    
                             </div>
                         </div>
                     </form>

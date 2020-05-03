@@ -1,37 +1,102 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package connection;
 
-/**
- *
- * @author mayuk
- */
-public class Login  extends issue
+
+
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+
+
+public class Login  
 {
-    public int CMLogin()
+    
+    
+    
+    public boolean CMLogin(String username,String password)
     {
+        boolean status = false;
+        try{
         
-       return 0; 
+        String user = null;
+        Connection con = Dbconnect.getconnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from cm where username= '"+username+"' and password='"+password+"'");
+        status = rs.next();
+        }
+        catch(Exception e)
+        {
+        System.out.println("Error in Login "+e.getMessage());
+        }
+        return status;
     }
     
-    public int MinisterLogin()
+    
+    
+    
+    public boolean MinisterLogin(String username,String password)
     {
+       boolean status = false;
+        try{
         
-       return 0; 
+        String user = null;
+        Connection con = Dbconnect.getconnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from minister where username= '"+username+"' and password='"+password+"'");
+        status = rs.next();
+        }
+        catch(Exception e)
+        {
+        System.out.println("Error in Login "+e.getMessage());
+        }
+        return status; 
     }
     
-    public int ClerkLogin()
+    
+    
+    
+    
+    
+    public boolean ClerkLogin(String username,String password)
     {
+       boolean status = false;
+        try{
         
-       return 0; 
+        String user = null;
+        Connection con = Dbconnect.getconnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from clerk where user_name= '"+username+"' and password='"+password+"'");
+        status = rs.next();
+        }
+        catch(Exception e)
+        {
+        System.out.println("Error in Login "+e.getMessage());
+        }
+        return status; 
     }
     
-    public int UserLogin()
+    
+    
+    
+    
+    public boolean UserLogin(String username,String password)
     {
+        boolean status = false;
+        try{
         
-       return 0; 
+        String user = null;
+        Connection con = Dbconnect.getconnection();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from user where user_name= '"+username+"' and password='"+password+"'");
+        status = rs.next();
+        }
+        catch(Exception e)
+        {
+        System.out.println("Error in Login "+e.getMessage());
+        }
+        return status;
     }
 }

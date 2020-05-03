@@ -1,11 +1,9 @@
 <%@page import="java.sql.*"%>
-<%@ page import = "java.text.SimpleDateFormat" %>
-<%@page import="connection.issue"%>
+<jsp:useBean id="connection" class="connection.Issuemanager" scope="request" />
 <%@ page session="true" %>
-
 <html>
 <head>
-    <title> Closing....................</title>
+    <title> Assigning....................</title>
 </head>
 
 <body>
@@ -19,39 +17,19 @@
     String sta = "assigned";
     String open= "open";
     String verified= "verified";
-    
+    String ret;
     
     if(stat.equals(open))
     {
-                    try{
-
-                        Connection con=issue.getConnection();
-                        Statement st = con.createStatement();
-                        Statement stmt = con.createStatement();
-
-                        ResultSet rs = null;
-                        rs = st.executeQuery("select * from issue where issue_id= '"+id+"'"); 
-                        if(rs.next()){
-                            k = rs.getInt(1);
-                            }
-                        k = k+1;
-
-                        stmt.executeUpdate("UPDATE issue SET priority = '"+prior+"',  Department = '"+dept+"', status='"+sta+"' WHERE  issue_id = '"+id+"';");
-                        
-                        response.sendRedirect("viewcmissues.jsp?m1="+id);    
-              
-                }
-                catch(Exception e1)
-                {
-                out.println(e1.getMessage());
-                }
+        ret = connection.assignissue(prior,dept,sta,id);
+        response.sendRedirect("viewcmissues.jsp?m1="+ret);    
     }
     else if(stat.equals(verified))
     {
-                response.sendRedirect("viewcmissues.jsp?m2="+id);  
+        response.sendRedirect("viewcmissues.jsp?m2="+id);  
     }
     else{
-        System.out.println(stat);
+        response.sendRedirect("viewcmissues.jsp?m2=failed");  
     }
 %>
 </body>

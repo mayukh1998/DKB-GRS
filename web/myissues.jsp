@@ -1,8 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
-<%@ page session="true" %>
+<%@page import="java.util.*"%>
+<%@page session="true" %>
+<%@page import="java.util.ArrayList"%> 
+<%@page import="connection.Issue"%> 
+<%@page import="connection.Dbconnect"%>
+<jsp:useBean id="connection" class="connection.Usermanager" scope="request" />
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,6 +15,7 @@
 <link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="myissue.css" rel="stylesheet" type="text/css" media="all" />
 <!--[if IE 6]>
 <link href="default_ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
@@ -43,11 +47,11 @@
                     <div id="content">
                          <%  
                                     String user = session.getAttribute("username").toString();
-                                    ResultSet rs=null;
+                                     ResultSet rs=null;
                                     ResultSet rs1=null;
                                     String s1,s2,s3,s4,s5,s6,s7;
                                     try{    
-                                       Connection con=issue.getConnection();
+                                       Connection con=Dbconnect.getconnection();
                                        Statement st = con.createStatement();
                                        Statement st2 = con.createStatement();
                                        rs=st.executeQuery("select * from user where user_name = '"+user+"'");
@@ -66,26 +70,10 @@
                          <div class="title">
                               <h2> <%=s4%> </h2>
                                 <h2> My Issues</h2>  
-                                <span class="byline"><p><b><a href="assignissue.jsp" rel="nofollow">Assign Issues</a></b></p></span>
+                                <span class="byline"><p><b><a href="assignissue.jsp" rel="nofollow">Acquire Issues</a></b></p></span>
                     </div>
                     <div class= "spltable">
-                        <style>
-                            table {
-                                border-collapse: collapse;
-                                width: 100%;
-                              }
-                            th, td {
-                                    padding: 15px;
-                                    margin-bottom: 1.5em;
-                                  }
-                            th {
-                                background: #3333cc;
-                                color: white;
-                              }
-                              
-                            tr:nth-child(even) {background-color: #f2f2f2;}
-
-                        </style>
+                       
                         <table border-bottom=1 align=center style="text-align:center">
                             <thead>
                                 <tr>
@@ -99,21 +87,21 @@
                             </thead>
                             <tbody>
                               <%
-                              rs1=st2.executeQuery("select * from issue where user_id = '"+s5+"'");
-                              while(rs1.next())
+                              List<Issue> issue = connection.user_view_issue(s5);
+                              for (Issue i:issue)
                               {
-                                  %>
-                                  <tr>
-                                      <td><%=rs1.getString(1) %></td>
-                                      <td><%=rs1.getString(2) %></td>
-                                      <td align ="justify"><%=rs1.getString(3) %></td>
-                                      <td><%=rs1.getString(10) %></td>
-                                        <td><%=rs1.getString(14) %></td>
-
-                                      <td><%=rs1.getString(7) %></td>
+                              %>
+                              
+                             <tr>
+                                    <td><%=i.getissue_id()%></td>
+                                      <td><%=i.getsubject()%></td>
+                                      <td align ="justify"><%=i.getdes()%></td>
+                                      <td><%=i.getdepartment()%></td>
+                                        <td><%=i.getdate()%></td>
+                                      <td><%=i.getstatus()%></td>
                                   </tr>
-                                  <%}%>
                                  </tbody>
+                                  <%}%>
                               </table>
                     </div>
                         
@@ -125,8 +113,7 @@
                 
 </div>
      <%
-}
-						con.close();
+                                        }
 					}
 					catch(Exception e)
 					{

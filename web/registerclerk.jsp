@@ -1,7 +1,6 @@
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
-<%@ page session="true" %>
-
+<%@ page session="true" %> 
+<jsp:useBean id="connection" class="connection.Registration" scope="request" />
 <html>
 <head>
     <title> Registering....................</title>
@@ -16,49 +15,16 @@
     
     if(un != "" || p != "" || n != "")
     {
-    
-                    try{
-
-                        Connection con=issue.getConnection();
-                        Statement st = con.createStatement();
-                        ResultSet rs = null;
-                        
-                        rs = st.executeQuery("select * from clerk ORDER BY clerk_id DESC"); 
-                        if(rs.next()){
-                            String cid = rs.getString(1);
-                            String[] parts = cid.split("c"); 
-                            String fp = parts[1];
-                            k = Integer.parseInt(fp);
-                            }
-                        k = k+1;
-                        String cid = "c"+k ;
-                        
-                        PreparedStatement ps = con.prepareStatement("insert into clerk values(?,?,?,?)");
-
-                        ps.setString(1,cid);
-                        ps.setString(2,n);
-                        ps.setString(3,un); 
-                        ps.setString(4,p);
-                        
-
-                        int h = ps.executeUpdate();
-
+        int h =	connection.registerClerk(un,n,p);            
                 if(h>=0){
-                out.println("User Registered Successfully. Now Login. ");
-                
-                response.sendRedirect("addclerk.jsp?m1="+cid);    
+                out.println(" Registered Successfully.");
+                response.sendRedirect("addclerk.jsp?m1=success");    
                         }
 
                 else    {
                 response.sendRedirect("addclerk.jsp?m2=Failed");
                         }
-
-                }
-                catch(Exception e1)
-                {
-                out.println(e1.getMessage());
-                }
-    }
+     }
     else
     {
         

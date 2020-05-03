@@ -1,10 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <%@page import="java.sql.*"%>
-    <%@page import="connection.issue"%>
+    <%@page import="connection.Dbconnect"%>
         <%@ page session="true" %>
+            <script src="sort.js"></script>
+            <script src="search.js"></script>
             <html xmlns="http://www.w3.org/1999/xhtml">
-<script src="jquery-3.4.1.js" type="text/javascript"></script>
+            <script src="jquery-3.4.1.js" type="text/javascript"></script>
 
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -14,7 +15,7 @@
                 <link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
                 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
                 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
-
+                <link href="viewmin.css" rel="stylesheet" type="text/css" media="all" />
             </head>
 
             <body>
@@ -44,7 +45,7 @@
                                     String s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15;
 
                                     try{    
-                                       Connection con = issue.getConnection();
+                                       Connection con = Dbconnect.getconnection();
                                        Statement st = con.createStatement();
                                        rs=st.executeQuery("select * from issue where issue_id ='"+issue_id+"'");     
                                        if ( rs.next() )
@@ -65,30 +66,7 @@
                                                                 s14=rs.getString(14);  
                                                                 s15=rs.getString(15);
                         %>
-                        <style>
-                            table {
-                                        border-collapse: collapse;
-                                        width: 100%;
-                                    }
-                                    
-                            tr:nth-child(even) {
-                                        background-color: #f2f2f2;
-                                    }
-                                    
-                                    tr:hover {
-                                        background-color: #ebe4d1;
-                                    }
-                                    
-                            td{
-                            text-align: left;
-                            padding: 20px;
-                            margin-bottom: 1.5em;
-                            width: auto;
-                            }
-                            tbody{
-                                text-align: center;
-                            }
-                        </style>
+
                         
                            
                         <div class="title">

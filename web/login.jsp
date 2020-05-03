@@ -1,7 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-
-
 <%
 session.setMaxInactiveInterval(2);
 %>
@@ -23,6 +21,7 @@ var Msg ='<%=session.getAttribute("getAlert")%>';
 <link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="login.css" rel="stylesheet" type="text/css" media="all" />
 <!--[if IE 6]>
 <link href="default_ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
@@ -54,64 +53,7 @@ var Msg ='<%=session.getAttribute("getAlert")%>';
 				<h2>USER Login</h2>
 				<span class="byline">Login with your appropiate crendentials</span> </div>
                
-                    <style>
-                        form {
-                                border: 5px solid #f1f1f1;
-                                }
-                                input[type=text], input[type=password] {
-                                height: 30px;
-                                width: 60%;
-                                padding: 16px 8px 16px 8px;
-                                margin: 8px 0;
-                                display: inline-block;
-                                border: 1px solid #ccc;
-                                box-sizing: border-box;
-                                }
-                                button {
-                                background-color:  #3333cc;
-                                color: white;
-                                padding: 14px 0;
-                                margin: 10px 0;
-                                border: none;
-                                cursor: grabbing;
-                                width: 60%;
-                                letter-spacing: 0.20em;
-                                text-decoration: none;
-                                text-transform: uppercase;
-                                font-weight: 400;
-                                font-size: 0.85em;
-                                }
-                                h1 {
-                                text-align:center;
-                                fone-size:18;
-                                }
-                                button:hover {
-                                opacity: 0.8;
-                                }
-                                .formcontainer {
-                                text-align: center;
-                                width: 500px;
-                                margin: 24px 50px 12px;
-                                }
-                                .container22 {
-                                padding: 16px 0;
-                                text-align:center;
-                                }
-
-                                span.psw {
-                                float: right;
-                                padding-top: 0;
-                                padding-left: 15px;
-                                }
-                                /* Change styles for span on extra small screens */
-                                @media screen and (max-width: 300px) {
-                                span.psw {
-                                display: block;
-                                float: none;
-                                }
-                               }
-                        
-                    </style>
+                  
                                 
                              
                     <form action="logindata.jsp">

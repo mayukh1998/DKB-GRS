@@ -1,5 +1,6 @@
+<%@page import="connection.Issue"%>
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
+<jsp:useBean id="connection" class="connection.Usermanager" scope="request" />
 <%@ page session="true" %>
 
 <html>
@@ -15,45 +16,27 @@
     String feed = request.getParameter("feed");
     
     int rt = Integer.parseInt(rate);
-    
+    int h;
     
     if(feed != "" || ii != "" || rate != "" )
     {
-    
-                    try{
-
-                        Connection con=issue.getConnection();
-                        Statement st = con.createStatement();
-                        Statement st1 = con.createStatement();
-                        String cl = "verified";
-                        if(rt < 3 )
-                        {
-                            cl = "open";
-                        }
-                        
-                        PreparedStatement ps = con.prepareStatement("Update issue Set feedback = '"+feed+"',feedback_rate = '"+rate+"', status = '"+cl+"' where issue_id = '"+ii+"'");
-
-                        
-                        int h = ps.executeUpdate();
-
-                            if(h>=0){
-
-
+        Issue issue = new Issue();
+        
+        issue.setissue_id(ii);
+        issue.setfeedback_rate(rate);
+        issue.setfeedback(feed);
+        
+        
+        h = connection.givefeedback(issue);
+        
+                   if(h>=2){
                             response.sendRedirect("givefeedback.jsp?m1=success");    
                             }
+                   else {
 
-                            else    {
-
-                            response.sendRedirect("givefeedback.jsp");
+                            response.sendRedirect("givefeedback.jsp?m3=reopen");
                     
                         }
-
-                        }
-                
-                catch(Exception e1)
-                {
-                out.println(e1.getMessage());
-                }
     }
     else
     {

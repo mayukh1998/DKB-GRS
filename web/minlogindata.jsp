@@ -1,33 +1,18 @@
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
+<jsp:useBean id="connection" class="connection.Login" scope="request" />
 <%@ page session="true" %>
         <%
         
         String username = request.getParameter("username");
         session.setAttribute("username",username);
         String password = request.getParameter("password");
-       
-        try{
-        
-        String user=null;
-        
-        Connection con =issue.getConnection();
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from minister where username= '"+username+"' and password='"+password+"'");
-        if(rs.next())
+        boolean h = connection.MinisterLogin(username,password);
+        if(h)
         {
-            
-        username = rs.getString(1);
-        session.setAttribute("username",username);
-        response.sendRedirect("minhome.jsp?m1=success");
-        return;
+            session.setAttribute("minname",username);
+            response.sendRedirect("minhome.jsp?m1=success");
         }
-        else {
-        out.println("Invalid password <a href='index.html'>try again</a>");
-        }
-        }
-        catch(Exception e)
-        {
-        System.out.println("Error in emplogact"+e.getMessage());
+        else{
+            out.println("Invalid password <a href='index.html'>try again</a>");
         }
         %>

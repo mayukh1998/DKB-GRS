@@ -1,7 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
+<%@page import="connection.Dbconnect"%>
 <%@ page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,6 +8,7 @@
 <link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="home.css" rel="stylesheet" type="text/css" media="all" />
 <!--[if IE 6]>
 <link href="default_ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
@@ -69,7 +68,7 @@
                                     ResultSet rs=null;
                                     String s1,s2,s3,s4,s5,s6,s7;
                                     try{    
-                                       Connection con=issue.getConnection();
+                                       Connection con=Dbconnect.getconnection();
                                        Statement st = con.createStatement();
                                        rs=st.executeQuery("select * from user where user_name = '"+user+"'");
 
@@ -87,26 +86,7 @@
                                                                 
                                          	%>
     <style>
-            #left-pane{
-                  height: 100%;
-                  float: left;
-                  width: 31%;
-                  text-align: left;
-                  padding: 200px 92px 0px 0px ;
-              }
-            #right-pane{
-                  width: auto;
-                  height: 100%;
-                  float: right;
-                  
-                  
-                 }  
-            #text1{
-                     text-align: left;
-                     margin-bottom: 1em;
-                     padding: 50px 0px 0px 0px;
-                 }
-     
+
     </style>                   
                                 <h2> Welcome </h2>
                                 <h2> <%=s4%> </h2>
@@ -137,10 +117,8 @@
                         </div>
                                         <%
                                     String user_id = s5;  
-                                    
                                     session.setAttribute("user_id",user_id);
-}
-						con.close();
+                                   }
 					}
 					catch(Exception e)
 					{

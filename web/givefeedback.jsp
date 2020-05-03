@@ -1,5 +1,5 @@
+<%@page import="connection.Dbconnect"%>
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
 <%@ page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
@@ -19,15 +19,15 @@
         if (request.getParameter("m1") != null) {
  %>
  
-    <script> alert('Feedback Given Successfully ');
+    <script> alert('Feedback Given Successfully');
     </script>
     <% }
-        else if(request.getParameter("m1") != null) 
+        else if(request.getParameter("m2") != null) 
         {%>
-           <script> alert('Failed');
+           <script> alert('Fill up the details');
             </script>
         <%}
-        else if(request.getParameter("m2") != null) 
+        else if(request.getParameter("m3") != null) 
         {%>
            <script> alert('Feedback Given Successfully... Not Satisfied. So Issue Reopened');
             </script>
@@ -89,7 +89,7 @@
                                     ResultSet rs2=null;
                                     String s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;
                                     try{    
-                                       Connection con=issue.getConnection();
+                                       Connection con=Dbconnect.getconnection();
                                        Statement st = con.createStatement();
                                        rs=st.executeQuery("select * from user where user_name = '"+username+"'");
                                        

@@ -1,6 +1,6 @@
+<%@page import="connection.Issue"%>
 <%@page import="java.sql.*"%>
-<%@ page import = "java.text.SimpleDateFormat" %>
-<%@page import="connection.issue"%>
+<jsp:useBean id="connection" class="connection.Issuemanager" scope="request" />
 <%@ page session="true" %>
 
 <html>
@@ -10,40 +10,18 @@
 
 <body>
 <%
-    int k = 0;
+    String ret;
     String id = request.getParameter("issue_id");
     String wd = request.getParameter("wdi");
-    String pr = "low";
-    String sta = "resolved";
-    String phn = "" ;
+    
     if(wd != "")
     {
-                    try{
-
-                        Connection con=issue.getConnection();
-                        Statement st = con.createStatement();
-                        Statement stmt = con.createStatement();
-
-                        ResultSet rs = null;
-                        rs = st.executeQuery("select * from issue where issue_id= '"+id+"'"); 
-                        if(rs.next()){
-                            phn = rs.getString(12);
-                            }
-
-                        stmt.executeUpdate("UPDATE issue SET minfeed = '"+wd+"', status='"+sta+"' WHERE  issue_id = '"+id+"';");
-                        
-                        response.sendRedirect("acknow.jsp?phn="+phn);    
-              
+        ret = connection.act_on_issue(wd,id);            
+        response.sendRedirect("acknow.jsp?phn="+ret);
                 }
-                catch(Exception e1)
-                {
-                out.println(e1.getMessage());
-                }
-    }
-                    else{
+   else{
                  response.sendRedirect("minhome.jsp?m3=blank"); 
-                            
-                            }
+                 }
 %>
     
 </body>

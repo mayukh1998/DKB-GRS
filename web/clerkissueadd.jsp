@@ -1,11 +1,14 @@
 <%@page import="java.sql.*"%>
+<%@page import="java.util.*"%>
+<%@page import="connection.Dbconnect"%>
+<%@page import="connection.Issue"%>
 <%@ page import = "java.text.SimpleDateFormat" %>
-<%@page import="connection.issue"%>
+<jsp:useBean id="connection" class="connection.Issuemanager" scope="request" />
 <%@ page session="true" %>
 
 <html>
 <head>
-    <title> Registering....................</title>
+    <title> Creating....................</title>
 </head>
 
 <body>
@@ -19,53 +22,47 @@
     String s = request.getParameter("subject");
     String d = request.getParameter("dept");
     String des = request.getParameter("descrip");
-    String fd = "";
+    String fd = " ";
+    String rt = " ";
     String pr = "low";
     String sta = "open";
+    String min = " ";
     long millis=System.currentTimeMillis();  
     java.sql.Date date=new java.sql.Date(millis);   
     String date1= date.toString();
-
-    if(s != "" || e != "" || ph  != "" || l != "" || n != "" || des != "" || d != ""  )
-    {
-    
-                    try{
-
-                        Connection con=issue.getConnection();
+                        Connection con=Dbconnect.getconnection();
                         Statement st = con.createStatement();
                         ResultSet rs = null;
                         rs = st.executeQuery("select * from issue ORDER BY issue_id DESC"); 
-                        if(rs.next())
-                        {
+                        if(rs.next()){
                             k = rs.getInt(1);
                             }
                         k = k+1;
-
-                        PreparedStatement ps = con.prepareStatement("insert into issue values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-                        ps.setInt(1,k); 
-                        ps.setString(2,s);
-                        ps.setString(3,des);
-                        ps.setString(4,l);
-                        ps.setString(5,clerk);
-                        ps.setString(6,n);
-                        ps.setString(7,sta);
-                        ps.setString(8,fd);
-                        ps.setString(9,"");
-                        ps.setString(10,d);
-                        ps.setString(11,pr);
-                        ps.setString(12,ph);
-                        ps.setString(13,e);
-                        ps.setString(14,date1);
-                        ps.setString(15,"");
-                        int h = ps.executeUpdate();
-
-                if(h>=0){
-                 
-                con.close();
-                
-                out.write("alert('Complaint Registered Successfully. Issue ID is +" +k + ". Kindly note down')");
-   
+                        String str = String.valueOf(k);
+        Issue issue = new Issue();
+        
+        issue.setissue_id(str);
+        issue.setsubject(s);
+        issue.setdes(des);
+        issue.setname(n);
+        issue.setlocation(l);
+        issue.setstatus(sta);
+        issue.setuser(clerk);
+        issue.setfeedback(fd);
+        issue.setfeedback_rate(rt);
+        issue.setdepartment(d);
+        issue.setpriority(pr);
+        issue.setphn(ph);
+        issue.setemail(e);
+        issue.setdate(date1);
+        issue.setminfeed(min);
+        
+        if(s != "" || e != "" || ph  != "" || l != "" || n != "" || des != "" || d != ""  )
+    {
+    
+        int[] arr = connection.clerk_create_issue(issue);   
+                if(arr[0]>=0){
+                    k= arr[1];
                 out.println("Complaint Registered Successfully. Issue ID is +" +k + ". Kindly note down ");
                 response.sendRedirect("createclerkIssue.jsp?m1="+k);    
                 }
@@ -76,11 +73,6 @@
                     
                         }
 
-                }
-                catch(Exception e1)
-                {
-                out.println(e1.getMessage());
-                }
     }
     else
     {

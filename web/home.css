@@ -1,0 +1,20 @@
+            #left-pane{
+                  float: left;
+                  height: 100%;
+                  width: 23%;
+                  text-align: left;
+                  padding: 200px 92px 0px 0px ;
+              }
+            #right-pane{
+                  width: auto;
+                  height: 100%;
+                  float: right;
+                  
+                  
+                 }  
+            #text1{
+                     text-align: left;
+                     margin-bottom: 1em;
+                     padding: 50px 0px 0px 0px;
+                 }
+     

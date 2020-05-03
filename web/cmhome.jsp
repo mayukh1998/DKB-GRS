@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
+<%@page import="connection.Dbconnect"%>
 <%@ page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,6 +9,7 @@
 <link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="home.css" rel="stylesheet" type="text/css" media="all" />
 
 </head>
     <%
@@ -17,7 +18,6 @@
     <% }
         else 
         {
-           
         }
     %>
 <body>
@@ -63,29 +63,6 @@
                         
                         <div id="right-pane">
                             <div class="title">
-                                
-    <style>
-            #left-pane{
-                  height: 100%;
-                  float: left;
-                  width: 21%;
-                  text-align: left;
-                  padding: 200px 92px 0px 0px ;
-              }
-            #right-pane{
-                  width: auto;
-                  height: 100%;
-                  float: right;
-                  
-                  
-                 }  
-            #text1{
-                     text-align: left;
-                     margin-bottom: 1em;
-                     padding: 50px 0px 0px 0px;
-                 }
-     
-    </style>                   
                                 <h2> Welcome </h2>
                             </div>
                             <div id="text1">
@@ -97,20 +74,11 @@
                                     <br>
                                     <li>Chief Minister</li>
                                         <br>
-                                    
                                 </ul>
-                              
                                 
                             </div>
-                                        
-                            
                             
                         </div>
-                        
-                        
-                        
-                        
-                        
                         
                     </div>
 	</div>

@@ -1,5 +1,6 @@
+<jsp:useBean id="connection" class="connection.Usermanager" scope="request" />
 <%@page import="java.sql.*"%>
-<%@page import="connection.issue"%>
+
 <%@ page session="true" %>
 
 <html>
@@ -15,58 +16,17 @@
     
     if(id != "" )
     {
-        
-    
-                    try{
-                        String first = "";
-                        String second ="";
-                        String cid ="";
-                        String c ="c";
-                        Connection con=issue.getConnection();
-                        Statement st = con.createStatement();
-                        ResultSet rs = null;
-                        rs = st.executeQuery("select * from issue where issue_id = '"+id+"'"); 
-                        if(rs.next()){
-                            cid = rs.getString(5);
-                            first = cid.substring(0,1);
-                            second = cid.substring(1,cid.length());
-                            }
-                        
-                        if(first.equals(c))
-                        {
-                            cid=ui;
-                            
-                            PreparedStatement ps = con.prepareStatement("Update issue Set user_id = '"+cid+"' where issue_id = '"+id+"'");
-                            int h = ps.executeUpdate();
-
-                            if(h>=0){
-
-
-                            response.sendRedirect("assignissue.jsp?m2=success");    
-                            }
-
-                            else    {
-
-                            response.sendRedirect("assignissue.jsp?m3=failed");
-                    
-                        }
-                        }
-                        else
-                        {
-                            response.sendRedirect("assignissue.jsp?m3=notpresent");
-                        }
-                 }
-                catch(Exception e1)
-                {
-                out.println(e1.getMessage());
-                }
+        int h = connection.acquireissue(id,ui);
+        if(h!=2){
+            response.sendRedirect("assignissue.jsp?m2=success");    
+             }
+         else    {response.sendRedirect("assignissue.jsp?m3=failed");
+             }
     }
     else
-    {
-        
-        response.sendRedirect("assignissue.jsp?m4=blank");
+    {  
+    response.sendRedirect("assignissue.jsp?m4=blank");
     }
-
 %>
     
 </body>
