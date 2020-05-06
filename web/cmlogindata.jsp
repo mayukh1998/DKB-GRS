@@ -13,6 +13,6 @@
             response.sendRedirect("cmhome.jsp?m1=success");
         }
         else{
-            out.println("Invalid password <a href='index.html'>try again</a>");
+            out.println("Invalid credentials <a href='index.html'>try again</a>");
         }
         %>
