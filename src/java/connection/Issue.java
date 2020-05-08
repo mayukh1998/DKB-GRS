@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-public class Issue implements Serializable
+public class Issue
 {
     
     private String issue_id;

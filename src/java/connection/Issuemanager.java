@@ -9,7 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-        
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.HttpURLConnection;
+import java.net.URLEncoder;      
 
 
 
@@ -101,21 +106,37 @@ public class Issuemanager
         String sta = "resolved";
         String phn = "" ;
         try{
-
                         Connection con=Dbconnect.getconnection();
                         Statement st = con.createStatement();
                         Statement stmt = con.createStatement();
-
                         ResultSet rs = null;
                         rs = st.executeQuery("select * from issue where issue_id= '"+id+"'"); 
                         if(rs.next()){
                             phn = rs.getString(12);
                             }
-
                         stmt.executeUpdate("UPDATE issue SET minfeed = '"+wd+"', status='"+sta+"' WHERE  issue_id = '"+id+"';");
+                        phn="91"+phn;        
+                        String apiKey = "apikey=" + "D74sYy/S+Ro-VF2TYNdaUukVKGt5fSyz5CAna89h7Y";
+                        //new key : EXW1uyd9D9s-aqWngJiMVc6JKVx98z6VjDhHbFVEBO
+			String message = "&message=" + "Your Issue has been resolved. Please login to the portal to give your feedback.";
+			String sender = "&sender=" + "TXTLCL";
+			String numbers = "&numbers=" + phn;
+			// Send data
+			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
+			String data = apiKey + numbers + message + sender;
+			conn.setDoOutput(true);
+			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+			conn.getOutputStream().write(data.getBytes("UTF-8"));
+			final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			final StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			while ((line = rd.readLine()) != null) {
+				stringBuffer.append(line);
+			}
+			rd.close();  
         }
-       catch(Exception e1)
-                {
+       catch(Exception e1){
                 System.out.println(e1.getMessage());
                 }
        return phn; 
