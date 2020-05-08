@@ -1,5 +1,5 @@
 <%@page import="java.sql.*"%>
-<jsp:useBean id="connection" class="connection.Login" scope="request" />
+<jsp:useBean id="connection" class="connection.LoginManager" scope="request" />
 <%@ page session="true" %>
         <%
         

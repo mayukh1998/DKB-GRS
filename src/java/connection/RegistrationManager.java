@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 
 
 
-public class Registration
+public class RegistrationManager
 {
     
     

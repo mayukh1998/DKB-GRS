@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 
 
 
-public class Login  
+public class LoginManager  
 {
     
     

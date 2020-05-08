@@ -25,8 +25,7 @@
         if (request.getParameter("m1") != null) {%>
     <script>alert('Login Success');</script>
     <% }
-        else if (request.getParameter("m2") != null) {
-    %>      
+        else if (request.getParameter("ret") != null) {  %>
     <script> 
         alert('Issue Resolved Successfully');</script>
     <%}
