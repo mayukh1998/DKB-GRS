@@ -57,14 +57,9 @@
         {
         String m4 = request.getParameter("m4");
     %>
-            
     <script> var m4 = <%=m4%>
-        alert('Opened Issues cannot be closed');</script>
-        
-    <%}%>
-    
-    
-    
+        alert('Opened Issues cannot be closed');</script> <%}%>
+
     
             </head>
             <body>

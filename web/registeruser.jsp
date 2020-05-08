@@ -1,6 +1,6 @@
 <%@page import="java.sql.*"%>
 <%@ page session="true" %> 
-<jsp:useBean id="connection" class="connection.Registration" scope="request" />
+<jsp:useBean id="connection" class="connection.RegistrationManager" scope="request" />
     <html>
     <head>
     <title> Registering.................... < /title> < /head>

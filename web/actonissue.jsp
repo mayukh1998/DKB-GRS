@@ -17,7 +17,7 @@
     if(wd != "")
     {
         ret = connection.act_on_issue(wd,id);            
-        response.sendRedirect("acknow.jsp?phn="+ret);
+        response.sendRedirect("minhome.jsp?ret="+ret);
                 }
    else{
                  response.sendRedirect("minhome.jsp?m3=blank"); 

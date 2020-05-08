@@ -1,5 +1,5 @@
 <%@page import="java.sql.*"%>
-<jsp:useBean id="connection" class="connection.Login" scope="request" />
+<jsp:useBean id="connection" class="connection.LoginManager" scope="request" />
 <%@ page session="true" %>
         <%
         
@@ -13,6 +13,6 @@
             response.sendRedirect("clerkhome.jsp?m1=success");
         }
         else{
-            out.println("Invalid password <a href='index.html'>try again</a>");
+            out.println("Invalid credentials <a href='index.html'>try again</a>");
         }
         %>
