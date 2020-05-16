@@ -3,8 +3,7 @@
 <%@page session="true" %>
 <%@page import="java.util.ArrayList"%> 
 <%@page import="connection.Issue"%> 
-<%@page import="connection.Dbconnect"%>
-<jsp:useBean id="connection" class="connection.Usermanager" scope="request" />
+<%@page import="connection.Usermanager"%> 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,7 +19,15 @@
 <link href="default_ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 </head>
-    
+<%
+    String s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;   
+    s1 = session.getAttribute("email").toString();
+    s2 = session.getAttribute("username").toString();
+    s4 = session.getAttribute("name").toString();
+    s5 = session.getAttribute("userid").toString();
+    s6 = session.getAttribute("phn").toString();
+    s7 = session.getAttribute("location").toString();
+%>   
 <body>
 <div id="wrapper">
 	<div id="header-wrapper">
@@ -45,32 +52,10 @@
                 
                 <div id="page" class="container">
                     <div id="content">
-                         <%  
-                                    String user = session.getAttribute("username").toString();
-                                     ResultSet rs=null;
-                                    ResultSet rs1=null;
-                                    String s1,s2,s3,s4,s5,s6,s7;
-                                    try{    
-                                       Connection con=Dbconnect.getconnection();
-                                       Statement st = con.createStatement();
-                                       Statement st2 = con.createStatement();
-                                       rs=st.executeQuery("select * from user where user_name = '"+user+"'");
-                                       
-                                         if ( rs.next() )
-					   		{
-								s1=rs.getString(1);
-								s2=rs.getString(2);
-								s3=rs.getString(3);
-								s4=rs.getString(4);
-								s5=rs.getString(5);
-								s6=rs.getString(6);
-                                                                s7=rs.getString(7);
-                                                                
-                                         	%>
                          <div class="title">
                               <h2> <%=s4%> </h2>
                                 <h2> My Issues</h2>  
-                                <span class="byline"><p><b><a href="assignissue.jsp" rel="nofollow">Acquire Issues</a></b></p></span>
+                                <span class="byline"><p><b><a href="acquireissue.jsp" rel="nofollow">Acquire Issues</a></b></p></span>
                     </div>
                     <div class= "spltable">
                        
@@ -87,44 +72,29 @@
                             </thead>
                             <tbody>
                               <%
-                              List<Issue> issue = connection.user_view_issue(s5);
-                              for (Issue i:issue)
-                              {
-                              %>
+                              List <Issue> list = Usermanager.user_view_issue(s5);
+                              for (Issue i:list)
+                                   {
+                            %>
                               
                              <tr>
                                     <td><%=i.getissue_id()%></td>
                                       <td><%=i.getsubject()%></td>
                                       <td align ="justify"><%=i.getdes()%></td>
                                       <td><%=i.getdepartment()%></td>
-                                        <td><%=i.getdate()%></td>
+                                      <td><%=i.getdate()%></td>
                                       <td><%=i.getstatus()%></td>
                                   </tr>
                                  </tbody>
                                   <%}%>
                               </table>
-                    </div>
-                        
-                        
-                        
-                
-                    </div>
+                </div>
+            </div>
 	</div>
                 
-</div>
-     <%
-                                        }
-					}
-					catch(Exception e)
-					{
-						out.println(e.getMessage());
-					}
-       
-   
-                                        %>     
-                                   
+</div>                       
     
-<div id="copyright" class="ccontainer" >
+<div id="copyright" class="container">
 	<p>&copy; Team Apex IEM</p>
 </div>
 </body>

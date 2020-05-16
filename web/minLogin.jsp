@@ -40,10 +40,8 @@
 		<div id="content">
 			<div class="title">
 				<h2>Minister Login</h2>
-				<span class="byline">Login with your appropiate crendentials</span> </div>
-     
-                             
-                    <form action="minlogindata.jsp">
+				<span class="byline">Login with your appropiate crendentials</span> </div>         
+                    <form action="minlogin">
                       <div class="formcontainer">
                       <hr/>
                       <div class="container22">
@@ -59,9 +57,7 @@
                       <button type="submit">Login</button>
                       <button type="reset">Reset</button>
                       </div>
-                    </form>                   
-         
-                                
+                    </form>          
                 </div>
         </div>
                     

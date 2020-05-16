@@ -11,20 +11,20 @@
 <body>
 <%
     String k = "";
-    String ii = request.getParameter("issue_id");
-    String rate = request.getParameter("feedback");
-    String feed = request.getParameter("feed");
+    String issue_id = request.getParameter("issue_id");
+    String feedback_rate = request.getParameter("feedback");
+    String feedback = request.getParameter("feed");
     
-    int rt = Integer.parseInt(rate);
+    int rt = Integer.parseInt(feedback_rate);
     int h;
     
-    if(feed != "" || ii != "" || rate != "" )
+    if(feedback != "" || issue_id != "" || feedback_rate != "" )
     {
         Issue issue = new Issue();
         
-        issue.setissue_id(ii);
-        issue.setfeedback_rate(rate);
-        issue.setfeedback(feed);
+        issue.setissue_id(issue_id);
+        issue.setfeedback_rate(feedback_rate);
+        issue.setfeedback(feedback);
         
         
         h = connection.givefeedback(issue);

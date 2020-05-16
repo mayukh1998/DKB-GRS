@@ -50,13 +50,9 @@ var Msg ='<%=session.getAttribute("getAlert")%>';
 	<div id="page" class="container">
 		<div id="content">
 			<div class="title">
-				<h2>USER Login</h2>
-				<span class="byline">Login with your appropiate crendentials</span> </div>
-               
-                  
-                                
-                             
-                    <form action="logindata.jsp">
+			<h2>USER Login</h2>
+			<span class="byline">Login with your appropiate crendentials</span> </div>
+                    <form action="userlogin" enctype="multipart/form-data">
                       <div class="formcontainer">
                       <hr/>
                       <div class="container22">

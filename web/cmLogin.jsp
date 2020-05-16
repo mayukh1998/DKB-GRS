@@ -53,7 +53,7 @@ session.setMaxInactiveInterval(2);
 						<h2>Chief Minister Login</h2>
 						<span class="byline">Login with your appropiate crendentials</span>
 					</div>
-					<form action="cmlogindata.jsp">
+					<form action="cmlogin>
 						<div class="formcontainer">
 							<hr/>
 							<div class="container22">

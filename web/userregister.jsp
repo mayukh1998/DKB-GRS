@@ -53,7 +53,7 @@ var Msg ='<%=session.getAttribute("getAlert")%>';
                     
                                 
                              
-                    <form action="registeruser.jsp">
+                    <form action="userregister">
                       <div class="formcontainer">
                       <hr/>
                       <div class="container22">

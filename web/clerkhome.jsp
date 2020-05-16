@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<%@page import="java.sql.*"%>
-    <%@page import="connection.Dbconnect"%>
-
+<%@page import="java.util.*"%>
+<jsp:useBean id="connection" class="connection.Usermanager" scope="request" />
+<%@page import="connection.Issue"%> 
         <%@ page session="true" %>
             <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -14,16 +14,27 @@
                 <link href="home.css" rel="stylesheet" type="text/css" media="all" />
             </head>
 
-            <%
-        if (request.getParameter("m1") != null) {%>
-                <script>
-                    alert('Login Success');
-                </script>
-                <% }
-        else 
-        {
-
-        }
+<%
+if (request.getParameter("m1") != null) {%>
+<script>
+alert('Login Success');
+</script>
+<% }
+else 
+  {
+  }
+String userid = session.getAttribute("clerkid").toString();
+String s1 = null, s2 = null, s3 = null, s5 = null, s6 = null, s7 = null;
+List < Issue > clerklist = Issue.getclerklist();
+outer:
+ for (Issue i: clerklist) {
+  if (i.getuser().equals(userid)) {
+   s2 = i.getname();
+   s3 = i.getusername();
+   s1 = userid;
+  }
+ }
+session.setAttribute("name", s2);    
     %>
 
                     <body>
@@ -61,25 +72,7 @@
 
                                     <div id="right-pane">
                                         <div class="title">
-
-                                            <%  
-                                    String user = session.getAttribute("username").toString();
-                                    ResultSet rs=null;
-                                    String s1,s2,s3,s4,s5,s6,s7;
-                                    try{    
-                                       Connection con=Dbconnect.getconnection();
-                                       Statement st = con.createStatement();
-                                       rs=st.executeQuery("select * from clerk where user_name = '"+user+"'");
-
-                                         if ( rs.next() )
-					   		{
-								s1=rs.getString(1);
-								s2=rs.getString(2);
-								s3=rs.getString(3);
-
-                                         	%>
-
-                                                <h2> Welcome </h2>
+                                            <h2> Welcome </h2>
                                                 <h2> <%=s2%> </h2>
                                         </div>
                                         <div id="text1">
@@ -97,26 +90,11 @@
                                                     <% out.println(s1); %>
                                                 </li>
                                                 <br>
-
                                             </ul>
 
                                         </div>
 
                                     </div>
-                                    <%
-                                    String clerk_id = s1;  
-
-                                    session.setAttribute("clerk_id",clerk_id);
-}
-						con.close();
-					}
-					catch(Exception e)
-					{
-						out.println(e.getMessage());
-					}
-
-                                        %>
-
                                 </div>
                             </div>
 

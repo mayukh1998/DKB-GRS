@@ -1,6 +1,7 @@
-<%@page import="connection.Dbconnect"%>
-<%@page import="java.sql.*"%>
-<%@ page session="true" %>
+<%@page session="true" %>
+<%@page import="java.util.*"%>
+<%@page import="connection.Issue"%> 
+<jsp:useBean id="connection" class="connection.Usermanager" scope="request" />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
 <script src="jquery-3.4.1.js" type="text/javascript"></script>  
@@ -10,10 +11,8 @@
 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 <link href="feedcss.css" rel="stylesheet" type="text/css" media="all" />
+<script src="getval.js"></script>
 
-<!--[if IE 6]>
-<link href="default_ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
 
  <%
         if (request.getParameter("m1") != null) {
@@ -31,7 +30,22 @@
         {%>
            <script> alert('Feedback Given Successfully... Not Satisfied. So Issue Reopened');
             </script>
-        <%}%>        
+        <%}
+        String s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;
+        String wd = request.getParameter("wd");
+        String iid = request.getParameter("id");
+        if(wd == null){
+            wd=" ";
+         }
+        s1 = session.getAttribute("email").toString();
+        s2 = session.getAttribute("username").toString();
+        s4 = session.getAttribute("name").toString();
+        s5 = session.getAttribute("userid").toString();
+        s6 = session.getAttribute("phn").toString();
+        s7 = session.getAttribute("location").toString();
+        List <Issue> list = connection.user_view_issue(s5);
+                              
+        %>        
 </head>   
 
 <body onload="select()">
@@ -74,42 +88,7 @@
                         
                         
                         <div id="right-pane">
-                            <div class="title">
-                                
-                                <%  
-                                    String wd = request.getParameter("wd");
-                                    String iid = request.getParameter("id");
-                                    if(wd == null)
-                                    {
-                                        wd=" ";
-                                    }
-                                    String username = session.getAttribute("username").toString();
-                                    ResultSet rs=null;
-                                    ResultSet rs1=null;
-                                    ResultSet rs2=null;
-                                    String s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;
-                                    try{    
-                                       Connection con=Dbconnect.getconnection();
-                                       Statement st = con.createStatement();
-                                       rs=st.executeQuery("select * from user where user_name = '"+username+"'");
-                                       
-                                         if ( rs.next() )
-					   		{
-								s1=rs.getString(1);
-								s2=rs.getString(2);
-								s3=rs.getString(3);
-								s4=rs.getString(4);
-								s5=rs.getString(5);
-								s6=rs.getString(6);
-                                                                s7=rs.getString(7);
-                                                                
-                                        String user_id = s5;     
-                                        rs1=st.executeQuery("select * from issue where user_id = '"+user_id+"' and status = 'resolved' ");
-                                        
-                                         	%>
-                  
-                                
-                                <h2> <%=s4%> </h2>
+                            <div class="title"><h2> <%=s4%> </h2>
                                 <h2>Give Feedback</h2>
                             </div>
                                 
@@ -130,13 +109,14 @@
                            <br>
                           <select name="issue_id" id="issue_id" onchange="getval()" required>
                                         <option class="placeholder" selected disabled value="">Select</option>
-                                        <%while(rs1.next()){ %>
-                                            <option value="<%=rs1.getString(1)%>"> <%=rs1.getString(1) %> <%=rs1.getString(2) %></option>
-                                            <%} %>
+                                        <%for (Issue i:list){
+                                            if(i.getstatus().equals("resolved")){%>
+                                            <option value="<%=i.getissue_id()%>"> <%=i.getissue_id() %> <%=i.getsubject() %></option>
+                                            <%}} %>
                                     </select> 
                                     
                                <br>
-                                   <p><small><i>Cannot find your issue.<a href="assignissue.jsp" rel="nofollow"> Click here</a></i></small></p>
+                                   <p><small><i>Cannot find your issue.<a href="acquireissue.jsp" rel="nofollow"> Click here</a></i></small></p>
                           <br>    
                               <br>
                             <label for="minfeed"><strong>Work Done:</strong></label>
@@ -174,36 +154,11 @@
                       <button type="submit">Give Feedback</button>
                       
                       <button type="reset">Reset</button>
-                      
                               <br>
                  </form>
-        
                  </div>
-                                       
-                                                  
-                                
-                                
                             </div>
-                                        
-                            
-                            
                         </div>
-                                        <%
-                                        }
-					}
-					catch(Exception e)
-					{
-						out.println(e.getMessage());
-					}
-       
-   
-                                        %>     
-                        
-                        
-                        
-                        
-                        
-                        
                     </div>
 	</div>
                 
@@ -217,20 +172,13 @@
 	<p>&copy; Team Apex IEM</p>
 </div>
                                         
-                                        <script type="text/javascript">
-                                                function select(){
-                                                    if(<%=iid%>!==null)
-                                                    {
-                                                        document.getElementById("issue_id").value=<%=iid%>;
-                                                     }
-                                                    }
-                                                
-                                                function getval(){
-                                                    var isuid = document.getElementById("issue_id").value;
-                                                    location.href= "getselect.jsp?id="+isuid;
-                                                }       
-                                            </script>
-                                        </script>
-                                        
+<script type="text/javascript">
+function select(){
+if(<%=iid%>!==null){
+ document.getElementById("issue_id").value=<%=iid%>;
+}
+}
+                                                    
+</script>           
 </body>
 </html>

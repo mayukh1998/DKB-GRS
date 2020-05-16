@@ -20,8 +20,8 @@ public class Dbconnect
         public static Connection getconnection(){  
         try
         {
-        Class.forName("com.mysql.jdbc.Driver");  //locahost:3306
-        con = DriverManager.getConnection("jdbc:mysql://mysqldb2018.cbhystqxlkhd.us-east-2.rds.amazonaws.com/grs", "mysqldb2018", "mysqldb2018");
+        Class.forName("com.mysql.jdbc.Driver");  //localhost:3306/  mysqldb2018.cbhystqxlkhd.us-east-2.rds.amazonaws.com 
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/grs", "root", "admin");
         }
         catch(Exception ex){ex.printStackTrace();}  
         return con;  

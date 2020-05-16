@@ -1,6 +1,7 @@
-<%@page import="java.sql.*"%>
-<%@page import="connection.Dbconnect"%>
-<%@ page session="true" %>
+<%@page import="java.util.List" %>
+<jsp:useBean id="connection" class="connection.Usermanager" scope="request" />
+<%@page import="connection.Issue"%> 
+<%@page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,21 +10,38 @@
 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 <link href="home.css" rel="stylesheet" type="text/css" media="all" />
-<!--[if IE 6]>
-<link href="default_ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
+
 </head>
     <%
-        if (request.getParameter("m1") != null) {%>
+        if (request.getParameter("m1") != null) {
+    %>
     <script>alert('Login Success');</script>
     <% }
         else 
         {
            
         }
-    %>
+String userid = session.getAttribute("userid").toString();
+String s1 = null, s2 = null, s4 = null, s5 = null, s6 = null, s7 = null;
+List < Issue > userlist = Issue.getuserlist();
+outer:
+ for (Issue i: userlist) {
+  if (i.getuser().equals(userid)) {
+   s4 = i.getname();
+   s2 = i.getusername();
+   s5 = userid;
+   s1 = i.getemail();
+   s7 = i.getlocation();
+   s6 = i.getphn();
+  }
+ }
+session.setAttribute("name", s4);
+session.setAttribute("email", s1);
+session.setAttribute("location", s7);
+session.setAttribute("phn", s6);
+%>
 <body>
-<div id="wrapper">
+    <div id="wrapper">
 	<div id="header-wrapper">
 		<div id="header" class="container">
 			<div id="logo">
@@ -62,32 +80,6 @@
                         
                         <div id="right-pane">
                             <div class="title">
-                                
-                                <%  
-                                    String user = session.getAttribute("username").toString();
-                                    ResultSet rs=null;
-                                    String s1,s2,s3,s4,s5,s6,s7;
-                                    try{    
-                                       Connection con=Dbconnect.getconnection();
-                                       Statement st = con.createStatement();
-                                       rs=st.executeQuery("select * from user where user_name = '"+user+"'");
-
-                                         if ( rs.next() )
-					   		{
-								s1=rs.getString(1);
-								s2=rs.getString(2);
-								s3=rs.getString(3);
-								s4=rs.getString(4);
-								s5=rs.getString(5);
-								s6=rs.getString(6);
-                                                                s7=rs.getString(7);
-                                                                
-                                                              
-                                                                
-                                         	%>
-    <style>
-
-    </style>                   
                                 <h2> Welcome </h2>
                                 <h2> <%=s4%> </h2>
                             </div>
@@ -106,34 +98,9 @@
                                     <li>Phone Number:-  <% out.println(s6); %></li>
                                     
                                 </ul>
-                                
-                                
-                                
-                                
                             </div>
-                                        
-                            
-                            
                         </div>
-                                        <%
-                                    String user_id = s5;  
-                                    session.setAttribute("user_id",user_id);
-                                   }
-					}
-					catch(Exception e)
-					{
-						out.println(e.getMessage());
-					}
-       
-   
-                                        %>     
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
+                 </div>
 	</div>
                 
 </div>

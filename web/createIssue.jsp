@@ -1,10 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<%@page import="java.sql.*"%>
-    <%@page import="connection.Dbconnect"%>
-        <%@ page session="true" %>
-            <html xmlns="http://www.w3.org/1999/xhtml">
-
-            <head>
+<%@ page session="true" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                 <title>DKB Grievance Redressal</title>
                 <link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
@@ -19,8 +16,16 @@
                     } 
                     }
                     </script> 
-            </head>
-          
+</head>
+<%
+    String s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12;   
+    s1 = session.getAttribute("email").toString();
+    s2 = session.getAttribute("username").toString();
+    s4 = session.getAttribute("name").toString();
+    s5 = session.getAttribute("userid").toString();
+    s6 = session.getAttribute("phn").toString();
+    s7 = session.getAttribute("location").toString();
+%>             
 
                     <body>
                         <div id="wrapper">
@@ -56,34 +61,12 @@
                                     </div>
 
                                     <div id="right-pane">
-                                        <div class="title">
-
-                                            <%  
-                                    String user = session.getAttribute("username").toString();
-                                    ResultSet rs=null;
-                                    String s1,s2,s3,s4,s5,s6,s7;
-                                    try{    
-                                       Connection con=Dbconnect.getconnection();
-                                       Statement st = con.createStatement();
-                                       rs=st.executeQuery("select * from user where user_name = '"+user+"'");
-
-                                         if ( rs.next() )
-					   		{
-								s1=rs.getString(1);
-								s2=rs.getString(2);
-								s3=rs.getString(3);
-								s4=rs.getString(4);
-								s5=rs.getString(5);
-								s6=rs.getString(6);
-                                                                s7=rs.getString(7);
-
-                                         	%>
-                                                <h2> <%=s4%> </h2>
+                                        <div class="title"><h2> <%=s4%> </h2>
                                                 <h2> Create Issue</h2>
                                         </div>
                                         <div id="text1">
 
-                                            <form action="issueadd.jsp">
+                                            <form action="createuserissue">
                                                 <div class="formcontainer">
                                                     <hr/>
                                                     <div class="container22">
@@ -142,21 +125,8 @@
                                                     <button type="reset">Reset</button>
                                                 </div>
                                             </form>
-
                                         </div>
-
                                     </div>
-                                    <%
-                                        }
-                                         con.close();
-					}
-					catch(Exception e)
-					{
-						out.println(e.getMessage());
-					}
-
-                                        %>
-
                                 </div>
                             </div>
 

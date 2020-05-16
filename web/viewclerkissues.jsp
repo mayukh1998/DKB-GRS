@@ -19,7 +19,6 @@
 		<link href="default_ie6.css" rel="stylesheet" type="text/css" />
 		<![endif]-->
 	</head>
-	<body>
 		<div id="wrapper">
 			<div id="header-wrapper">
 				<div id="header" class="container">
@@ -72,17 +71,17 @@
 								</thead>
 								<tbody>
                                                                     <%
-                                                                        List <Issue> issue = connection.clerk_view_issue();
-                                                                        for (Issue i:issue)
+                                                                        List <Issue> list = connection.clerk_view_issue();
+                                                                        for (Issue li:list)
                                                                          {
                                                                          %>
 										<tr>
-                                                                                  <td><%=i.getissue_id()%></td>
-                                                                                  <td><%=i.getsubject()%></td>
-                                                                                  <td align ="justify"><%=i.getdes()%></td>
-                                                                                  <td><%=i.getdepartment()%></td>
-                                                                                    <td><%=i.getdate()%></td>
-                                                                                  <td><%=i.getstatus()%></td>
+                                                                                  <td><%=li.getissue_id()%></td>
+                                                                                  <td><%=li.getsubject()%></td>
+                                                                                  <td align ="justify"><%=li.getdes()%></td>
+                                                                                  <td><%=li.getdepartment()%></td>
+                                                                                    <td><%=li.getdate()%></td>
+                                                                                  <td><%=li.getstatus()%></td>
                                                                                 </tr>
                                                                 </tbody>
                                                                             <%}%>

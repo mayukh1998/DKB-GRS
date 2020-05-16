@@ -15,9 +15,9 @@
         if (request.getParameter("m1") != null) {%>
     <script>alert('Clerk Added Successfully');</script>
     <% }
-        else 
-        {
-           
+        else if(request.getParameter("m2") != null)
+        {%><script>alert("Operation Failed");</script>
+    <%
         }
     %>
 <body>
@@ -34,7 +34,7 @@
 		<div id="menu" class="container">
 			<ul>
 				<li ><a href="cmhome.jsp">Home</a></li>
-				<li><a href="viewcmissues.jsp">Assign Issues</a></li>
+				<li><a href="assignissue.jsp">Assign Issues</a></li>
 				<li class="current_page_item"><a href="addclerk.jsp">Add Clerk</a></li>
                                 <li ><a href="addmin.jsp">Add Minister</a></li>
 				<li><a href="logout.jsp">LogOut</a></li>
@@ -45,15 +45,9 @@
                 
                 <div id="page" class="container">
                     <div id="content">
-                      
-                        
-                        
-                    <div class="title">
-				<h2>Clerk Resgistration</h2>
-		
-                                
-                             
-                    <form action="registerclerk.jsp">
+                      <div class="title">
+				<h2>Clerk Resgistration</h2>     
+                    <form action="addclerk">
                       <div class="formcontainer">
                       <hr/>
                       <div class="container22">
@@ -62,14 +56,14 @@
                           <input type="text" id="name" placeholder="Enter Name" name="name" required>
                               <br>       
                                  <br>       
-                        <label for="username"><strong>Username:</strong></label>
+                        <label for="user_name"><strong>Username:</strong></label>
                     <br>
-                        <input type="text" placeholder="Enter Username" name="user_name" required>
+                        <input type="text" placeholder="Enter Username" name="user_name" id="user_name" required>
                         <p><small><i>Note: This will be your username to login</i></small></p>
                           <br>    
-                            <label for="password"><strong>Password:</strong></label>
+                            <label for="user_password"><strong>Password:</strong></label>
                             <br>
-                        <input type="password" placeholder="Enter Password" name="user_password" required>
+                        <input type="password" placeholder="Enter Password" name="user_password" id="user_password" required>
                             <br>
                               <br>
                               </div>
@@ -77,17 +71,8 @@
                       <button type="reset">Reset</button>
                       </div>
                     </form>                   
-         
-                                
-                </div>    
-                        
-                        
-                       
-                        
-                        
-                        
-                        
-                    </div>
+                 </div>    
+             </div>
 	</div>
                 
 </div>

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<%@page import="java.sql.*"%>
-<%@ page session="true" %>
-<%@page import="connection.Dbconnect"%>
+<%@page import="java.util.List" %>
+<%@page import="connection.Issue"%> 
+<%@page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script src="jquery-3.4.1.js" type="text/javascript"></script>
@@ -32,6 +31,22 @@
         else if (request.getParameter("m3") != null) {%>
     <script>alert('Enter Data. Try Again');</script>
     <%}
+String userid = session.getAttribute("minid").toString();
+String s1 = null, s2 = null, s4 = null, s5 = null, s3 = null, s7 = null;
+List < Issue > minlist = Issue.getministerlist();
+outer:
+ for (Issue i: minlist) {
+  if (i.getuser().equals(userid)) {
+   s3 = i.getname();
+   s2 = i.getusername();
+   s5 = userid;
+   s4 = i.getdepartment();
+  }
+ }
+session.setAttribute("dept", s4);
+session.setAttribute("name", s3);
+List <Issue> list = Issue.get_issue();
+%>
     %>
 <body>
 <div id="wrapper">
@@ -54,42 +69,14 @@
 		<!-- end #menu --> 
                 
                 <div id="page" class="container">
-                    
-                         <%  
-                                    String user = session.getAttribute("username").toString();
-                                    ResultSet rs=null;
-                                    ResultSet rs1=null;
-                                    
-                                    String s1,s2,s3,s4;
-                                    try{    
-                                       Connection con=Dbconnect.getconnection();
-                                       Statement st = con.createStatement();
-                                       Statement st2 = con.createStatement();
-                                       rs=st.executeQuery("select * from minister where username = '"+user+"'");
-
-                                         if ( rs.next() )
-					   		{
-								s1=rs.getString(1);
-								s2=rs.getString(3);
-								s3=rs.getString(4);
-                                                                s4=rs.getString(5);
-                                                                
-                                                              
-                                                    rs1=st2.executeQuery("select * from issue where Department = '"+s4+"' and status = 'assigned'");  
-                                       
-                                                     
-                                         	%>
-                         <div class="title">
+                    <div class="title">
                               <h2> Act On Issues</h2>
                               <h2><%=s3%></h2>
                               <p>Department:- <%=s4%></p>
                               <br>
                               <span class="byline"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Issue ID.."></span> 
                          </div>
-
                     <div class= "spltable">
-                        
-                        
                                     <table border-bottom=1 align=center style="text-align:center" class="myTable" id="myTable"  >
                                        <thead>
                                 <tr>
@@ -105,63 +92,45 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              <%
-                                    String user_id = s2;  
-                                    session.setAttribute("user_id",user_id);
-                                }
-                              while(rs1.next())
-                              {
-                                  %>
+                                <%for (Issue li:list){if(li.getdepartment().equals(s4) && li.getstatus().equals("assigned")){%>
                                   <tr>
-                                      <td><%=rs1.getString(11) %></td>
-                                      <td><%=rs1.getString(14) %></td>
-                                      <td><input  id='issue_id' name ='issue_id' value='<%=rs1.getString(1)%>' class='disable' type="hidden"><%=rs1.getString(1)%></td>
-                                      <td title= "<%=rs1.getString(3) %>" ><%=rs1.getString(2) %></td>
-                                      <td><%=rs1.getString(6) %></td>
-                                      <td><%=rs1.getString(4) %></td>
-                                      <td><%=rs1.getString(7) %></td>
+                                      <td><%=li.getpriority() %></td>
+                                      <td><%=li.getdate() %></td>
+                                      <td><input  id='issue_id' name ='issue_id' value='<%=li.getissue_id()%>' class='disable' type="hidden"><%=li.getissue_id()%></td>
+                                      <td title= "<%=li.getdes() %>" ><%=li.getsubject() %></td>
+                                      <td><%=li.getname() %></td>
+                                      <td><%=li.getlocation()%></td>
+                                      <td><%=li.getstatus() %></td>
                                       <td onclick='event.stopPropagation();return false;' ><textarea id="wd" rows="4" cols="50" name="wd" onkeyup= "copydata()" ></textarea></td>
-                                      <td><form method='POST' action="actonissue.jsp" id='form1'>
-                                              <input  id='issue_id' name ='issue_id' value='<%=rs1.getString(1)%>' class='disable' type="hidden">
+                                      <td><form method='POST' action="actonissue" id='form1'>
+                                              <input  id='issue_id' name ='issue_id' value='<%=li.getissue_id()%>' class='disable' type="hidden">
                                                   <input  id='wdi' name ='wdi' class='disable' type="hidden" >
                                                       <button type="submit" >Resolve Issue</button> </form>
                                       </td>
                                   </tr>
-                                  <%}%>
+                                  <%}}%>
                                  </tbody>
                               </table>
-                                  <%
-                                    
-                                        con.close();
-					}
-					catch(Exception e)
-					{
-						out.println(e.getMessage());
-					}
-       
-   
-                                        %>   
-   
                     </div>
 
                                         
                        
                                         
 <script>
-                  $(".myTable").on("click", "td:not(:last)", function(){
-                   var issueid = $(this).closest('tr').find("td:eq(2) input").val();
-                   window.location = 'viewminissues.jsp?issue_id='+issueid;
-                    });           
-                    
-                    
-                   $('.myTable').on('click', 'button', function(e) {
-                        e.stopPropagation();
-                      });
+$(".myTable").on("click", "td:not(:last)", function() {
+ var issueid = $(this).closest('tr').find("td:eq(2) input").val();
+ window.location = 'viewminissues.jsp?issue_id=' + issueid;
+});
 
-                    $('[name ="wd"]').keyup(function(){
-                    //console.log($(this).val())
-                    $(this).closest("tr").find("#wdi").val($(this).val());
-                        });
+
+$('.myTable').on('click', 'button', function(e) {
+ e.stopPropagation();
+});
+
+$('[name ="wd"]').keyup(function() {
+ //console.log($(this).val())
+ $(this).closest("tr").find("#wdi").val($(this).val());
+});                 
 </script>                        
     </div>     
 </div>

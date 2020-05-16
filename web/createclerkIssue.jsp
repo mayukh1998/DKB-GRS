@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<%@page import="java.sql.*"%>
 <%@ page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -65,7 +64,7 @@
                                 <h2> Create Issue</h2>
                             </div>
                             <div id="text1">
-                    <form action="clerkissueadd.jsp" >
+                    <form action="createclerkissue" >
                                <div class="formcontainer">
                                <hr/>
                                <div class="container22">
@@ -74,14 +73,14 @@
                                    <input type="text" id="name" name="name" required>
                                        <br>       
                                     <br>  
-                                  <label for="email"><strong>Email:</strong></label>
+                                  <label for="user_email"><strong>Email:</strong></label>
                                   <br>
-                                   <input type="email" id="email"  name="user_email" required>    
+                                   <input type="email" id="user_email"  name="user_email" required>    
                                      <br>
                                          <br>
                                       <label for="phn"><strong>Phone Number:</strong></label>
                                       <br>
-                                   <input type="text" id="phn"  name="phn" required>  
+                                   <input type="number" id="phn"  name="phn" required>  
                                     <br>
                                         <br>
                                     <label for="location"><strong>Location:</strong></label>
@@ -120,12 +119,10 @@
                                </div>
 
                              </form>                   
-                             </div>            
-
-                                     </div>
-
-                                 </div>
-                             </div>
+                             </div>    
+                         </div>
+                     </div>
+                </div>
 	</div>            
     
 <div id="copyright" class="ccontainer" >
