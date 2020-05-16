@@ -86,6 +86,32 @@
         </div>
     </div>
     <!-- end #menu -->
+        alert('Opened Issues cannot be closed');</script> <%}%>
+
+    
+            </head>
+            <body>
+                <div id="wrapper">
+                    <div id="header-wrapper">
+                        <div id="header" class="container">
+                            <div id="logo">
+                                <h1><a href="https://www.didikebolo.com/en/">Didi Ke Bolo</a></h1>
+                                <p>Grievance Redressal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menu-wrapper">
+                        <div id="menu" class="container">
+                            <ul>
+                                <li><a href="cmhome.jsp">Home</a></li>
+                                <li class="current_page_item"><a href="viewcmissues.jsp">Assign Issues</a></li>
+                                <li><a href="addclerk.jsp">Add Clerk</a></li>
+                                <li><a href="addmin.jsp">Add Minister</a></li>
+                                <li><a href="logout.jsp">LogOut</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end #menu -->
 
     <div id="page" class="container">
         <div class="title">
