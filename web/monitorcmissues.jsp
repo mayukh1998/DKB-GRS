@@ -1,14 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@page import="connection.Issue"%>
 <%@page import="java.util.List"%>
-<jsp:useBean id="connection" class="connection.Issuemanager" scope="request" />
 <%@ page session="true" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <script src="jquery-3.4.1.js" type="text/javascript"></script>
 <%
 String s1 = null,s2 = null,s3 = null,s4 = null,s5 = null,s6 = null,s7 = null,s8 = null,s9 = null,s10 = null,s11 = null,s12 = null,s13 = null,s14 = null,s15 = null;
 String issue_id=request.getParameter("issue_id");
-List <Issue> issue = connection.monitor_issue();
+List <Issue> issue = Issue.get_issue();
 for (Issue i:issue){
 if(i.getissue_id().equals(issue_id)){
 s1 = i.getissue_id();
@@ -49,7 +48,7 @@ s15 = i.getminfeed();
         <div id="menu" class="container">
             <ul>
                 <li><a href="cmhome.jsp">Home</a></li>
-                <li><a href="viewcmissues.jsp">Assign Issues</a></li>
+                <li><a href="assignissue.jsp">Assign Issues</a></li>
                 <li><a href="addclerk.jsp">Add Clerk</a></li>
                 <li><a href="addmin.jsp">Add Minister</a></li>
                 <li><a href="logout.jsp">LogOut</a></li>

@@ -12,9 +12,8 @@
 		<link href="login.css" rel="stylesheet" type="text/css" media="all" />
 		<!--[if IE 6]>
 		<link href="default_ie6.css" rel="stylesheet" type="text/css" />
-		<![endif]--><%
-session.setMaxInactiveInterval(2);
-%>
+		<![endif]-->
+                <%session.setMaxInactiveInterval(2);%>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -53,7 +52,7 @@ session.setMaxInactiveInterval(2);
 						<h2>Chief Minister Login</h2>
 						<span class="byline">Login with your appropiate crendentials</span>
 					</div>
-					<form action="cmlogin>
+					<form action="cmlogin">
 						<div class="formcontainer">
 							<hr/>
 							<div class="container22">

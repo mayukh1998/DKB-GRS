@@ -1,4 +1,3 @@
-<%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%@page session="true" %>
 <%@page import="java.util.ArrayList"%> 

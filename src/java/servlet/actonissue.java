@@ -21,7 +21,7 @@ import javax.servlet.annotation.WebServlet;
 public class actonissue extends HttpServlet {
 
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     String ret;
     String id = request.getParameter("issue_id");

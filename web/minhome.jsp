@@ -119,7 +119,7 @@ List <Issue> list = Issue.get_issue();
 <script>
 $(".myTable").on("click", "td:not(:last)", function() {
  var issueid = $(this).closest('tr').find("td:eq(2) input").val();
- window.location = 'viewminissues.jsp?issue_id=' + issueid;
+ window.location = 'viewminissues.jsp?issue_id=' +issueid;
 });
 
 

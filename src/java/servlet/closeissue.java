@@ -27,7 +27,7 @@ public class closeissue extends HttpServlet {
     String id = request.getParameter("issue_id");
     String status = Issuemanager.closeissue(id);
     
-    if (status.equals("close")) {
+    if (status.equals("closed")) {
         response.sendRedirect("viewcmissues.jsp?m3=" + status);
         }else {
         response.sendRedirect("viewcmissues.jsp?m4=" + status);

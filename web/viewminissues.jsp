@@ -6,7 +6,6 @@
 <script src="jquery-3.4.1.js" type="text/javascript"></script>
 <%@page import="connection.Issue"%>
 <%@page import="java.util.List"%>
-<jsp:useBean id="connection" class="connection.Issuemanager" scope="request" />
         
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,7 +20,7 @@
 <%
 String s1 = null,s2 = null,s3 = null,s4 = null,s5 = null,s6 = null,s7 = null,s8 = null,s9 = null,s10 = null,s11 = null,s12 = null,s13 = null,s14 = null,s15 = null;
 String issue_id=request.getParameter("issue_id");
-List <Issue> issue = connection.monitor_issue();
+List <Issue> issue = Issue.get_issue();
 for (Issue i:issue){
 if(i.getissue_id().equals(issue_id)){
 s1 = i.getissue_id();

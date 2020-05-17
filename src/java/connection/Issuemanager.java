@@ -233,7 +233,7 @@ public class Issuemanager
     public static String closeissue(String issue_id)
     {
         String verified="verified";
-        String close="close";
+        String closed="closed";
         String stat="";
         String user="";
         String status="";
@@ -261,7 +261,7 @@ public class Issuemanager
                 
                 if(status.equals(verified))
                 {
-                    stat = close;
+                    stat = closed;
                     Issue.update_issue(user, prior, issue_id, dept, stat, feedback, feedback_rate, wd);
                     }
                 else

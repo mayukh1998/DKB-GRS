@@ -49,10 +49,6 @@ var Msg ='<%=session.getAttribute("getAlert")%>';
 		<div id="content">
 			<div class="title">
 				<h2>Resgistration Form</h2>
-				
-                    
-                                
-                             
                     <form action="userregister">
                       <div class="formcontainer">
                       <hr/>
