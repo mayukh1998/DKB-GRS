@@ -37,14 +37,14 @@ public class assignissue extends HttpServlet {
     if(stat.equals(open))
     {
         ret = Issuemanager.assignissue(prior,dept,sta,id);
-        response.sendRedirect("viewcmissues.jsp?m1="+ret);    
+        response.sendRedirect("assignissue.jsp?m1="+ret);    
     }
     else if(stat.equals(verified))
     {
-        response.sendRedirect("viewcmissues.jsp?m2="+id);  
+        response.sendRedirect("assignissue.jsp?m2="+id);  
     }
     else{
-        response.sendRedirect("viewcmissues.jsp?m2=failed");  
+        response.sendRedirect("assignissue.jsp?m2=failed");  
     }
     }
 }
