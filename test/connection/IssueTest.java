@@ -53,6 +53,8 @@ public class IssueTest {
     }
 
 
+    
+    
     @Test
     public void testInsertUser() {
         System.out.println("insertUser");
@@ -76,7 +78,7 @@ public class IssueTest {
         String un = "jyoti";
         String n = "Jyoti Priyo Mallick";
         String p = "jyoti";
-        String dept = "Food";
+        String dept = "food";
         int k = 110;
         int expResult = 1;
         int result = Issue.insertMinister(un, n, p, dept, k);
@@ -124,5 +126,6 @@ public class IssueTest {
         assertEquals(expResult, result);
     }
 
+    
  
 }

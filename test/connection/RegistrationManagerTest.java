@@ -37,41 +37,44 @@ public class RegistrationManagerTest {
     public void tearDown() {
     }
 
+    
+    
     /**
      * Test of registerUser method, of class RegistrationManager.
      */
     @Test
     public void testRegisterUser() {
         System.out.println("registerUser");
-        String un = "";
-        String n = "";
-        String p = "";
-        String e = "";
-        String ph = "";
-        String l = "";
-        int expResult = 0;
+        String un = "Riyanka";
+        String n = "Riyanka Saha";
+        String p = "abc";
+        String e = "riyasaha@gmail.com";
+        String ph = "8583992804";
+        String l = "189/1Ultadanga Main Road";
+        int expResult = 1;
         int result = RegistrationManager.registerUser(un, n, p, e, ph, l);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
+    
+    
     /**
      * Test of registerMinister method, of class RegistrationManager.
      */
     @Test
     public void testRegisterMinister() {
         System.out.println("registerMinister");
-        String un = "";
-        String n = "";
-        String p = "";
-        String dept = "";
-        int expResult = 0;
+        String un = "jyoti";
+        String n = "Jyoti Priyo Mallick";
+        String p = "jyoti";
+        String dept = "food";
+        int expResult = 1;
         int result = RegistrationManager.registerMinister(un, n, p, dept);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
+    
+    
 
     /**
      * Test of registerClerk method, of class RegistrationManager.
@@ -79,14 +82,12 @@ public class RegistrationManagerTest {
     @Test
     public void testRegisterClerk() {
         System.out.println("registerClerk");
-        String un = "";
-        String n = "";
-        String p = "";
-        int expResult = 0;
+        String un = "gargi";
+        String n = "Gargi Banerjee";
+        String p = "gargi";
+        int expResult = 1;
         int result = RegistrationManager.registerClerk(un, n, p);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

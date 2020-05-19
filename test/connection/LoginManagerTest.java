@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package connection;
 
 import org.junit.After;
@@ -43,13 +39,11 @@ public class LoginManagerTest {
     @Test
     public void testUserLogin() {
         System.out.println("UserLogin");
-        String username = "";
-        String password = "";
-        String expResult = "";
+        String username = "mayukh";
+        String password = "ac123";
+        String expResult = "102";
         String result = LoginManager.UserLogin(username, password);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,13 +52,11 @@ public class LoginManagerTest {
     @Test
     public void testMinisterLogin() {
         System.out.println("MinisterLogin");
-        String username = "";
-        String password = "";
-        String expResult = "";
+        String username = "jyoti";
+        String password = "jyoti";
+        String expResult = "1109";
         String result = LoginManager.MinisterLogin(username, password);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,28 +65,26 @@ public class LoginManagerTest {
     @Test
     public void testClerkLogin() {
         System.out.println("ClerkLogin");
-        String username = "";
-        String password = "";
-        String expResult = "";
+        String username = "kushanva";
+        String password = "1234";
+        String expResult = "c101";
         String result = LoginManager.ClerkLogin(username, password);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
+    
+    
     /**
      * Test of CMLogin method, of class LoginManager.
      */
     @Test
     public void testCMLogin() {
         System.out.println("CMLogin");
-        String username = "";
-        String password = "";
-        boolean expResult = false;
+        String username = "cm";
+        String password = "cm123";
+        boolean expResult = true;
         boolean result = LoginManager.CMLogin(username, password);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

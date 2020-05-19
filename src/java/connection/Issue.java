@@ -308,7 +308,6 @@ public class Issue
     
   public static List < Issue > get_issue()
     {
-    //    List < Issue > al = new ArrayList < Issue > ();
         List < Issue > al = new CopyOnWriteArrayList< Issue >();
         try {
          ResultSet rs1 = null;
