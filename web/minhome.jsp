@@ -6,19 +6,15 @@
 <script src="jquery-3.4.1.js" type="text/javascript"></script>
 <script src="sort.js"></script>
 <script src="search.js"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>DKB Grievance Redressal</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
-
 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
-
 <link href="minister.css" rel="stylesheet" type="text/css" media="all" />
-<!--[if IE 6]>
-<link href="default_ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
 </head>
      <%
         if (request.getParameter("m1") != null) {%>

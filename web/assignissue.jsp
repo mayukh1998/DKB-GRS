@@ -94,7 +94,7 @@
                         <div class="title">
                                 <h2> Assign Issues</h2>
                                 <br>
-                                <span class="byline"><input type="text" id="myInput" onkeyup="issuesearch()" placeholder="Search by Issue ID.."></span>
+                                <span class="byline"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Issue ID.."></span>
                             </div>
 
                             <div class="spltable">
