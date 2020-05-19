@@ -27,7 +27,7 @@
     %>
             
     <script> var m1 = <%=m1%>
-        alert('Issue ID '+m1+' Assogned to Department Successfully');</script>
+        alert('Issue ID '+m1+' Assigned to Department Successfully');</script>
     <%}
         else 
         {
