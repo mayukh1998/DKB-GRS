@@ -87,7 +87,7 @@
                         </div>
                         
                         
-                        <div id="right-pane">
+                    <div id="right-pane">
                             <div class="title"><h2> <%=s4%> </h2>
                                 <h2>Give Feedback</h2>
                             </div>
@@ -155,11 +155,11 @@
                       
                       <button type="reset">Reset</button>
                               <br>
-                 </form>
+                      </form>
                  </div>
-                            </div>
-                        </div>
                     </div>
+                </div>
+             </div>
 	</div>
                 
                                         
