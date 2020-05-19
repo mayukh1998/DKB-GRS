@@ -1,17 +1,9 @@
 package connection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.*;
+import java.io.*;
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;      
@@ -114,7 +106,7 @@ public class Issuemanager
                             }
                          }
                         int h = Issue.update_issue(user, prior, id, dept, sta, feedback, feedback_rate, wd);
-                        /*
+
                         phn="91"+phn;        
                         String apiKey = "apikey=" + "D74sYy/S+Ro-VF2TYNdaUukVKGt5fSyz5CAna89h7Y";
                         //new key : EXW1uyd9D9s-aqWngJiMVc6JKVx98z6VjDhHbFVEBO
@@ -134,7 +126,6 @@ public class Issuemanager
 				stringBuffer.append(line);
 			}
 			rd.close(); 
-                        */
         }
        catch(Exception e1){
                 System.out.println(e1.getMessage());
