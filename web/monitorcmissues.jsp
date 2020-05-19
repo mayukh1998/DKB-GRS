@@ -48,6 +48,7 @@ s15 = i.getminfeed();
         <div id="menu" class="container">
             <ul>
                 <li><a href="cmhome.jsp">Home</a></li>
+                <li><a href="viewmonitorcmissues.jsp">Monitor Issues</a></li>
                 <li><a href="assignissue.jsp">Assign Issues</a></li>
                 <li><a href="addclerk.jsp">Add Clerk</a></li>
                 <li><a href="addmin.jsp">Add Minister</a></li>
