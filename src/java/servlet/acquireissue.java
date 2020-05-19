@@ -14,9 +14,10 @@ import javax.servlet.annotation.WebServlet;
 
 
 public class acquireissue extends HttpServlet {
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    try (PrintWriter out = response.getWriter()) {
     int k = 0;
     HttpSession session=request.getSession();  
     String id = request.getParameter("issue_id");
@@ -33,6 +34,32 @@ public class acquireissue extends HttpServlet {
     else
     {  
     response.sendRedirect("acquireissue.jsp?m4=blank");
+    }    
+        }
     }
+
+    
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
+
+    
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    
+    
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+    
+    
 }

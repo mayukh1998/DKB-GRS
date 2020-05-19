@@ -10,7 +10,6 @@ import java.util.*;
 import java.io.*;  
 import javax.servlet.*;  
 import javax.servlet.http.*;
-import connection.Issue;
 import connection.Issuemanager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,30 +20,50 @@ import javax.servlet.annotation.WebServlet;
 
 public class assignissue extends HttpServlet {
 
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    int k = 0;
-    String stat = request.getParameter("stt");
-    String prior = request.getParameter("prior");
-    String id = request.getParameter("iid");
-    String dept = request.getParameter("dep");
-    String pr = "low";
-    String sta = "assigned";
-    String open= "open";
-    String verified= "verified";
-    String ret;
-    if(stat.equals(open))
-    {
+        try (PrintWriter out = response.getWriter()) {
+        int k = 0;
+        String stat = request.getParameter("stt");
+        String prior = request.getParameter("prior");
+        String id = request.getParameter("iid");
+        String dept = request.getParameter("dep");
+        String pr = "low";
+        String sta = "assigned";
+        String open= "open";
+        String verified= "verified";
+        String ret;
+        if(stat.equals(open)){
         ret = Issuemanager.assignissue(prior,dept,sta,id);
         response.sendRedirect("assignissue.jsp?m1="+ret);    
-    }
-    else if(stat.equals(verified))
-    {
+        }
+        else if(stat.equals(verified)){
         response.sendRedirect("assignissue.jsp?m2="+id);  
-    }
-    else{
+        }
+        else{
         response.sendRedirect("assignissue.jsp?m2=failed");  
+            }
+        }
+        }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
+
+    
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
+
+    
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+
 }

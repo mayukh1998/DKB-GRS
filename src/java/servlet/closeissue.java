@@ -10,27 +10,48 @@ import java.util.*;
 import java.io.*;  
 import javax.servlet.*;  
 import javax.servlet.http.*;
-import connection.Issue;
 import connection.Issuemanager;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.text.SimpleDateFormat;
-import javax.servlet.annotation.WebServlet;
 
 
 public class closeissue extends HttpServlet {
 
 
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    String id = request.getParameter("issue_id");
-    String status = Issuemanager.closeissue(id);
-    
+    try (PrintWriter out = response.getWriter()) {
+        String id = request.getParameter("issue_id");
+        String status = Issuemanager.closeissue(id);
     if (status.equals("closed")) {
         response.sendRedirect("viewcmissues.jsp?m3=" + status);
         }else {
         response.sendRedirect("viewcmissues.jsp?m4=" + status);
+        }   
         }
     }
+
+
+   
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    
+    
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    
+    
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+    
+    
 }

@@ -9,31 +9,54 @@ import java.util.*;
 import java.io.*;  
 import javax.servlet.*;  
 import javax.servlet.http.*;
-import connection.Issue;
 import connection.Issuemanager;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.text.SimpleDateFormat;
 import javax.servlet.annotation.WebServlet;
 
 
 @WebServlet(name = "actonissue", urlPatterns = {"/actonissue"})
 public class actonissue extends HttpServlet {
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    String ret;
-    String id = request.getParameter("issue_id");
-    String wd = request.getParameter("wdi");
+        try (PrintWriter out = response.getWriter()) {
+        String ret;
+        String id = request.getParameter("issue_id");
+        String wd = request.getParameter("wdi");
     if(wd != "")
     {
         ret = Issuemanager.act_on_issue(wd,id);            
         response.sendRedirect("minhome.jsp?ret="+ret);
-                }
+        }
    else{
                  response.sendRedirect("minhome.jsp?m3=blank"); 
                  }
+        }
     }
+
+    
+    
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    
+    
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+    
+    
 
 }
