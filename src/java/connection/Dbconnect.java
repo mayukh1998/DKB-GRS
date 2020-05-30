@@ -5,7 +5,6 @@
  */
 package connection;
 
-
 import java.sql.*;
 import java.util.*;
 import java.sql.Connection;
@@ -18,7 +17,8 @@ public class Dbconnect
         public static Connection getconnection(){  
         try
         {
-        Class.forName("com.mysql.jdbc.Driver");  //localhost:3306/  mysqldb2018.cbhystqxlkhd.us-east-2.rds.amazonaws.com 
+        Class.forName("com.mysql.jdbc.Driver");  //localhost:3306/ 
+        //
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/grs", "root", "admin");
         }
         catch(Exception ex){ex.printStackTrace();}  
