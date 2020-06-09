@@ -30,7 +30,7 @@ public class cmlogin extends HttpServlet {
             response.sendRedirect("cmhome.jsp?m1=success");
         }
         else{
-            response.sendRedirect("retry.jsp");
+            response.sendRedirect("cmLogin.jsp?s=fail");
         }
     }
 

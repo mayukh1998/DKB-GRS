@@ -145,13 +145,14 @@ public class Usermanager {
 
   int h = 0;
   try {
-   String feedback_rate, status, issue_id, feedback,user,prior,dept;
+   String feedback_rate, status, issue_id, feedback,user,prior,dept,minfeed;
    user="";
    prior="";
    dept="";
    feedback_rate = issue.getfeedback_rate();
    issue_id = issue.getissue_id();
    feedback = issue.getfeedback();
+   minfeed = issue.getminfeed();
    int rt = Integer.parseInt(feedback_rate);
    status = "verified";
    List <Issue> al = Issue.get_issue();
@@ -165,9 +166,9 @@ public class Usermanager {
    if (rt < 3) {
     status = "open";
    }
-   h = Issue.update_issue(user, prior, issue_id, dept, status, feedback, feedback_rate, issue_id);
+   Issue.update_issue(user, prior, issue_id, dept, status, feedback, feedback_rate, minfeed);
    h = rt;
-  } catch (Exception e1) {
+  }catch(Exception e1){
    System.out.println(e1.getMessage());
   }
   return h;

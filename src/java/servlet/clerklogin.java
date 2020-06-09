@@ -28,7 +28,7 @@ public class clerklogin extends HttpServlet {
             response.sendRedirect("clerkhome.jsp?m1=success");
         }
         else{
-            response.sendRedirect("retry.jsp");
+            response.sendRedirect("clerkLogin.jsp?s=fail");
         }
     }
 

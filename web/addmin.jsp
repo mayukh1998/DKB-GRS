@@ -70,8 +70,8 @@
                                 <br>
                                   <label for="dept"><strong>Department:</strong></label>
                            <br>
-                          <select id="dept" name="dept">
-                               <option selected disabled>Select Department</option>
+                          <select id="dept" name="dept" required>
+                               <option value="" selected disabled>Select Department</option>
                                 <option value="health">Health</option>
                                 <option value="education">Education</option>
                                 <option value="sports">Sports</option>

@@ -4,14 +4,12 @@
 session.setMaxInactiveInterval(2);
 %>
 
- <script type="text/javascript">
-var Msg ='<%=session.getAttribute("getAlert")%>';
-    if (Msg != "null") {
- function alertName(){
- alert("Username Registered Successfully");
- } 
- }
- </script> 
+<%
+if (request.getParameter("s")!=null) { %>
+<script> alert("Invalid Credentials! Try Again");
+</script>
+<%}%>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

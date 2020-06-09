@@ -48,6 +48,10 @@
         <servlet-name>assignissue</servlet-name>
         <servlet-class>servlet.assignissue</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>givefeedback</servlet-name>
+        <servlet-class>servlet.givefeedback</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>userlogin</servlet-name>
         <url-pattern>/userlogin</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>assignissue</servlet-name>
         <url-pattern>/assignissue</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>givefeedback</servlet-name>
+        <url-pattern>/givefeedback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

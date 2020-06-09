@@ -29,7 +29,7 @@ public class minlogin extends HttpServlet {
             response.sendRedirect("minhome.jsp?m1=success");
         }
         else{
-            response.sendRedirect("retry.jsp");
+            response.sendRedirect("minLogin.jsp?s=fail");
         }
     }
 

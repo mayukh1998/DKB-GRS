@@ -14,6 +14,7 @@ s1 = i.getissue_id();
 s2 = i.getsubject();
 s3 = i.getdes();
 s4 = i.getlocation();
+s5 = i.getuser();
 s6 = i.getname();
 s7 = i.getstatus();
 s8 = i.getfeedback();
@@ -83,6 +84,14 @@ s15 = i.getminfeed();
                         </td>
                         <td>
                             <%=s10%>
+                        </td>
+                    </tr>
+                        <tr>
+                        <td>
+                            ID:
+                        </td>
+                        <td>
+                            <%=s5%>
                         </td>
                     </tr>
                     <tr>

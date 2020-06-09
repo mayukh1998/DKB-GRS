@@ -30,8 +30,7 @@ public class userlogin extends HttpServlet {
             response.sendRedirect("userhome.jsp?m1=success");
         }
         else{
-            response.sendRedirect("retry.jsp");
+            response.sendRedirect("login.jsp?s=fail");
         }
     }
-
 }

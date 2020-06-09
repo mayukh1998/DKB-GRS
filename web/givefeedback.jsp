@@ -94,7 +94,7 @@
                                 
                               
                  <div class="formcontainer">            
-                 <form action="feedbackadd.jsp"  >
+                 <form action="givefeedback">
                       
                       <hr/>
                       <div class="container22">

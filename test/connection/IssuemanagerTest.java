@@ -67,7 +67,8 @@ public class IssuemanagerTest {
         assertEquals(expResult, result);
     }
 
-    
+   
+
     
     @Test
     public void testMonitor_issue() throws Exception {
@@ -100,7 +101,7 @@ public class IssuemanagerTest {
     }
 
     
-    
+     */
     
     
     
@@ -114,7 +115,7 @@ public class IssuemanagerTest {
         for (Issue i:list){
         if(i.getissue_id().equals(id)){
             phn=i.getphn();} }
-        String expResult = phn;
+        String expResult = "91"+phn;
         String result = Issuemanager.act_on_issue(wd, id);
         assertEquals(expResult, result);
     }
@@ -169,8 +170,7 @@ public class IssuemanagerTest {
         String result = Issuemanager.assignissue(prior, dept, sta, issue_id);
         assertEquals(expResult, result);
     }
-    */
-
+    
    
     
     
