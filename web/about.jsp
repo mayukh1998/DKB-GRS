@@ -37,6 +37,15 @@
     
     <div id="page" class="container">
                     <div id="content">
+                     <div class="title">
+                    <h2>About Us</h2>
+                    </div>    
+                        <p style = "text-align: justify;">
+                         <p style = "text-align: justify;">   The Institute of Engineering & Management, Kolkata is a private engineering and management school located in the state of West Bengal, India. Founded in the year, 1989, it is the oldest private engineering school in the state. IEM Kolkata is a part of the IEM Group. The institute is affiliated to Maulana Abul Kalam Azad University of Technology (MAKAUT) which was earlier known as West Bengal University of Technology (WBUT). Institute of Engineering and Management Kolkata is approved by The All India Council for Technical Education (AICTE). </p>
+                        <p style = "text-align: justify;">    Apex is a group of six final year students of Department of Computer Science & Engineering of Institute of Engineering & Management, Kolkata. This website was created by them to help the people of West Bengal to get in touch with the Chief Minister of the state and share their problems with her. This was a project work that they took up and completed in their final semester. </p>
+                         <p style = "text-align: justify;">   Apex constitutes of the following students :</p>
+                        </p>
+                        <img src="images/apex.png" style ="align-content: center; height: 60%; width: 60%;" ></img>
                         
                     </div>
 	</div>
