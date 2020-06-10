@@ -8,6 +8,10 @@ session.setMaxInactiveInterval(2);
 if (request.getParameter("s")!=null) { %>
 <script> alert("Invalid Credentials! Try Again");
 </script>
+<%}
+if (request.getParameter("m1")!=null) { %>
+<script> alert("Registration Success");
+</script>
 <%}%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
