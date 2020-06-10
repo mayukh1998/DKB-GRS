@@ -11,5 +11,8 @@ A grievance redressal system for didi ke bolo portal.
 Apache Tomcat
 ```
 ```
-Mysql 5+
+Mysql 5.5
+```
+```
+Jdk 1.8
 ```
