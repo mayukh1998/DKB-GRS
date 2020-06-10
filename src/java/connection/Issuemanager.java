@@ -108,7 +108,7 @@ public class Issuemanager
                         int h = Issue.update_issue(user, prior, id, dept, sta, feedback, feedback_rate, wd);
 
                         phn="91"+phn;        
-                        String apiKey = "apikey=" + "D74sYy/S+Ro-VF2TYNdaUukVKGt5fSyz5CAna89h7Y";
+                        String apiKey = "apikey=" + "EXW1uyd9D9s-Qv2hLuQWaQl3qoBDQyAeIAg6IexnE4";
                         //new key : EXW1uyd9D9s-aqWngJiMVc6JKVx98z6VjDhHbFVEBO
 			String message = "&message=" + "Your Issue has been resolved. Please login to the portal to give your feedback.";
 			String sender = "&sender=" + "TXTLCL";
