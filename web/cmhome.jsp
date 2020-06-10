@@ -62,7 +62,7 @@
                                 <ul style="list-style-type:circle;">
                                     
                                     <br>
-                                    <li>Name:-  Mamata Bannerjee </li>
+                                    <li>Name:-  Mamata Banerjee </li>
                                     <br>
                                     <li>Chief Minister</li>
                                         <br>

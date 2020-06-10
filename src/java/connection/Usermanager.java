@@ -149,10 +149,10 @@ public class Usermanager {
    user="";
    prior="";
    dept="";
+   minfeed="";
    feedback_rate = issue.getfeedback_rate();
    issue_id = issue.getissue_id();
    feedback = issue.getfeedback();
-   minfeed = issue.getminfeed();
    int rt = Integer.parseInt(feedback_rate);
    status = "verified";
    List <Issue> al = Issue.get_issue();
@@ -161,6 +161,7 @@ public class Usermanager {
              user = i.getuser();
              prior = i.getpriority();
              dept = i.getdepartment();
+             minfeed = i.getminfeed();
             }
            }
    if (rt < 3) {
