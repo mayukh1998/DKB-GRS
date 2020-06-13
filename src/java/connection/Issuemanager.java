@@ -46,9 +46,9 @@ public class Issuemanager
     
     public List < Issue >  monitor_issue() throws ClassNotFoundException
     {
-        List <Issue> clerklist = Issue.get_issue();
+        List <Issue> list = Issue.get_issue();
         List <Issue> newlist = new CopyOnWriteArrayList< Issue >();
-        for (Issue i:clerklist)
+        for (Issue i:list)
           {
             Issue cm = new Issue();
             

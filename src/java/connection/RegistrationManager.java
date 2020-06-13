@@ -47,12 +47,17 @@ public class RegistrationManager
         List<Integer> ids = new ArrayList<Integer>();
         try{
             List <Issue> list = Issue.getministerlist();
+            if(list.isEmpty()==false){
             for (Issue i:list)
                 {
                     ids.add(Integer.parseInt(i.getuser()));
                 }
                         k = Collections.max(ids,null);
                         k = k+1;
+            }
+            else{
+                k=1101;
+            }
                         h = Issue.insertMinister(un, n, p, dept, k);
         }catch(Exception ex){
 		System.out.println("Error during updation"+ex);
@@ -76,6 +81,7 @@ public class RegistrationManager
        List<Integer> ids = new ArrayList<Integer>();         
        try{
             List <Issue> list = Issue.getclerklist();
+            if(list.isEmpty()==false){
             for (Issue i:list)
                 {
                     cid = i.getuser();
@@ -87,6 +93,10 @@ public class RegistrationManager
             k = Collections.max(ids,null);
             k = k+1;
             cid = "c"+k ;
+            }
+            else{
+                cid="c101";
+            }
             h = Issue.insertClerk(un, n, p, cid);
         }catch(Exception ex){
             System.out.println("Error during updation"+ex);

@@ -1,74 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@page import="connection.Issue"%>
 <%@page import="java.util.List"%>
 <jsp:useBean id="connection" class="connection.Issuemanager" scope="request" />
-    <%@page import="connection.Dbconnect"%>
-        <%@ page session="true" %>
-            <html xmlns="http://www.w3.org/1999/xhtml">
-            
-            <script src="jquery-3.4.1.js" type="text/javascript"></script>
-            <script src="sort.js"></script>
-            <script src="search.js"></script>
-            <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                <title>DKB Grievance Redressal</title>
-                <meta name="keywords" content="" />
-                <meta name="description" content="" />
-                <link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
-                <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
-                <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
-                <link href="viewcmissues.css" rel="stylesheet" type="text/css" media="all" />
-                
-                
-  <%
-        if (request.getParameter("m1") != null) 
-        {
-        String m1 = request.getParameter("m1");
-    %>
-            
-    <script> var m1 = <%=m1%>
-        alert('Issue ID '+m1+' Assigned to Department Successfully');</script>
-    <%}
-        else 
-        {
-        }
-        %>
-        
-        <%
-      if (request.getParameter("m2") != null) 
-        {
-        String m1 = request.getParameter("m2");
-    %>
-            
-    <script> var m2 = <%=m1%>
-        alert('Issue ID '+m2+' Priority Already Assigned And Resolved');</script>
-        
-    <%} 
-    if (request.getParameter("m3") != null) 
-        {
-        String m3 = request.getParameter("m3");
-    %>
-            
-    <script> var m3 = <%=m3%>
-        alert('Issue Closed Successfully');</script>
-        
-    <%}%>
-    
-    <%
-    if (request.getParameter("m4") != null) 
-        {
-        String m4 = request.getParameter("m4");
-    %>
-    <script> var m4 = <%=m4%>
-        alert('Opened Issues cannot be closed');</script> 
-    <%}
-    List <Issue> list = connection.monitor_issue();
-     %>
-
-    
-            </head>
-            <body>
-                <div id="wrapper">
+<%@page import="connection.Dbconnect"%>
+<%@ page session="true" %>
+<html>
+<script src="jquery-3.4.1.js" type="text/javascript"></script>
+<script src="sort.js"></script>
+<script src="search.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DKB Grievance Redressal</title>
+<link href="default1.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="viewcmissues.css" rel="stylesheet" type="text/css" media="all" />             
+<%if (request.getParameter("m1") != null) {
+  String m1 = request.getParameter("m1");%>
+  <script> var m1 = <%=m1%>;
+   alert('Issue ID '+m1+' Assigned to Department Successfully');</script>
+<%}else{}%>
+<%if (request.getParameter("m2") != null) {
+  String m1 = request.getParameter("m2");%>
+<script> var m2 = <%=m1%>;
+   alert('Issue ID '+m2+' Priority Already Assigned And Resolved');</script>
+<%}if (request.getParameter("m3") != null) 
+   { String m3 = request.getParameter("m3");%>
+<script> var m3 = <%=m3%>;
+  alert('Issue Closed Successfully');</script>
+  <%}
+ if (request.getParameter("m4") != null) {
+   String m4 = request.getParameter("m4");%>
+<script> var m4 = <%=m4%>;
+ alert('Opened Issues cannot be closed');</script> 
+<%}
+List <Issue> list = connection.monitor_issue();
+%>
+</head>
+<body>
+<div id="wrapper">
                     <div id="header-wrapper">
                         <div id="header" class="container">
                             <div id="logo">
@@ -178,13 +146,12 @@
                                                 <%}}%>
                                         </tbody>
                                     </table>
-                            </div>
+                      </div>
                     </div>
                 </div>
-
-                <div id="copyright" class="ccontainer">
-                    <p>&copy; Team Apex IEM</p>
-                </div>
+<div id="copyright" class="ccontainer">
+<p>&copy; Team Apex IEM</p>
+</div>
 <script>
 $(".myTable").on("click", "td:not(:last)", function() {
  var issueid = $(this).closest('tr').find("td:eq(2) input").val();

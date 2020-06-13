@@ -52,6 +52,14 @@
         <servlet-name>givefeedback</servlet-name>
         <servlet-class>servlet.givefeedback</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>delclerk</servlet-name>
+        <servlet-class>servlet.delclerk</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>delmin</servlet-name>
+        <servlet-class>servlet.delmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>userlogin</servlet-name>
         <url-pattern>/userlogin</url-pattern>
@@ -103,6 +111,14 @@
     <servlet-mapping>
         <servlet-name>givefeedback</servlet-name>
         <url-pattern>/givefeedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>delclerk</servlet-name>
+        <url-pattern>/delclerk</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>delmin</servlet-name>
+        <url-pattern>/delmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

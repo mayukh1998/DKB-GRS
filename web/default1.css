@@ -87,6 +87,12 @@ hr {
 }
 
 
+#phn::-webkit-inner-spin-button, 
+#phn::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 /*********************************************************************************/
 /* List Styles                                                                   */
 /*********************************************************************************/
@@ -539,6 +545,12 @@ p.pfaq{
 		color: #FFF;
 		width: 190px
 	}
+        button:disabled,
+            button[disabled]{
+              border: 1px solid #999999;
+              background-color: #cccccc;
+              color: #666666;
+            }
 	
 		.button:before
 		{

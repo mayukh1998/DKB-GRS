@@ -19,6 +19,8 @@ import javax.servlet.annotation.WebServlet;
  */
 public class addclerk extends HttpServlet {
 
+    
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     int k = 0;
@@ -43,4 +45,5 @@ public class addclerk extends HttpServlet {
         response.sendRedirect("addclerk.jsp");
     }
     }
-}
+    
+    }

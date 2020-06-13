@@ -10,7 +10,8 @@ import javax.servlet.annotation.WebServlet;
 
 
 public class addmin extends HttpServlet {
-
+    
+      
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int k = 0;
@@ -34,4 +35,5 @@ public class addmin extends HttpServlet {
         response.sendRedirect("addmin.jsp");
     }
     }
+
 }

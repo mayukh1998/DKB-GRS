@@ -168,15 +168,42 @@ public class Issue
             conn.close();
         }
         catch(SQLException ex) {
-         Logger.getLogger(Usermanager.class.getName()).log(Level.SEVERE, null, ex);
+         Logger.getLogger(ex.toString());
         }
         return h;
     }
     
     
+    
+        public static int deleteClerk(String cid){
+        int h=0;
+        try{
+            Connection conn = Dbconnect.getconnection();
+            Statement stmt = conn.createStatement();            
+            h=stmt.executeUpdate("DELETE FROM clerk WHERE clerk_id='"+cid+"'");
+            conn.close();
+        }
+        catch(SQLException ex) {
+         Logger.getLogger(ex.toString());
+        }
+        return h;
+    }
   
     
     
+        public static int deleteMinister(String minid){
+        int h=0;
+        try{
+            Connection conn = Dbconnect.getconnection();
+            Statement stmt = conn.createStatement();            
+            h=stmt.executeUpdate("DELETE FROM minister WHERE min_id="+minid);
+            conn.close();
+        }
+        catch(SQLException ex) {
+         Logger.getLogger(ex.toString());
+        }
+        return h;
+    }
     
     
     
@@ -197,7 +224,7 @@ public class Issue
             con.close();
         }
         catch(SQLException ex) {
-         Logger.getLogger(Usermanager.class.getName()).log(Level.SEVERE, null, ex);
+         Logger.getLogger(ex.toString());
         }
         return h;
     }
@@ -226,7 +253,7 @@ public class Issue
             con.close();
         }
         catch(Exception ex){
-            System.out.println(ex);
+            Logger.getLogger(ex.toString());
         }
         return h;
     }
@@ -266,7 +293,7 @@ public class Issue
             con.close(); 
         }
         catch(Exception ex){
-            System.out.println(ex);
+            Logger.getLogger(ex.toString());
         }
         
         return result;
@@ -291,7 +318,7 @@ public class Issue
             con.close();
         }
         catch(SQLException ex) {
-        Logger.getLogger(Usermanager.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ex.toString());
         }
         return h;
     }
@@ -332,7 +359,7 @@ public class Issue
           al.add(issue);
          }
         } catch (SQLException ex) {
-         Logger.getLogger(Usermanager.class.getName()).log(Level.SEVERE, null, ex);
+         Logger.getLogger(ex.toString());
         }
         return al;
      }
@@ -371,7 +398,7 @@ public class Issue
         }
         }
         catch(Exception ex){
-            System.out.println(ex);
+            Logger.getLogger(ex.toString());
         }
         return userlist;
     }
@@ -401,7 +428,7 @@ public class Issue
             }
         }
         catch(Exception ex){
-            System.out.println(ex);
+            Logger.getLogger(ex.toString());
         }
         return clerklist;
     }
@@ -435,7 +462,7 @@ public class Issue
         }
         }
         catch(Exception ex){
-            System.out.println(ex);
+            Logger.getLogger(ex.toString());
         }
         return ministerlist;
     }
@@ -466,7 +493,7 @@ public class Issue
             }
         }
         catch(Exception ex){
-            System.out.println(ex);
+            Logger.getLogger(ex.toString());
         }
         return cmlist;
     }

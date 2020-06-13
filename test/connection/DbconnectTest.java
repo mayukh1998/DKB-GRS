@@ -33,9 +33,7 @@ public class DbconnectTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getconnection method, of class Dbconnect.
-     */
+
     @Test
     public void testGetconnection() {
         System.out.println("getconnection");

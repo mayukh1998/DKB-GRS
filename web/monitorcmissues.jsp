@@ -1,11 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@page import="connection.Issue"%>
 <%@page import="java.util.List"%>
 <%@ page session="true" %>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <script src="jquery-3.4.1.js" type="text/javascript"></script>
-<%
-String s1 = null,s2 = null,s3 = null,s4 = null,s5 = null,s6 = null,s7 = null,s8 = null,s9 = null,s10 = null,s11 = null,s12 = null,s13 = null,s14 = null,s15 = null;
+<%String s1 = null,s2 = null,s3 = null,s4 = null,s5 = null,s6 = null,s7 = null,s8 = null,s9 = null,s10 = null,s11 = null,s12 = null,s13 = null,s14 = null,s15 = null;
 String issue_id=request.getParameter("issue_id");
 List <Issue> issue = Issue.get_issue();
 for (Issue i:issue){
@@ -23,28 +21,24 @@ s10 = i.getdepartment();
 s11 = i.getpriority();
 s14 = i.getdate();
 s15 = i.getminfeed();
-}}
-%>
+}}%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>DKB Grievance Redressal</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />
+<title>DKB Grievance Redressal</title>
 <link href="default1.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 <link href="viewissuecmmin.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
 <div id="wrapper">
-    <div id="header-wrapper">
-        <div id="header" class="container">
-            <div id="logo">
-                <h1><a href="https://www.didikebolo.com/en/">Didi Ke Bolo</a></h1>
-                <p>Grievance Redressal</p>
-            </div>
+<div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <h1><a href="https://www.didikebolo.com/en/">Didi Ke Bolo</a></h1>
+            <p>Grievance Redressal</p>
         </div>
     </div>
+</div>
     <div id="menu-wrapper">
         <div id="menu" class="container">
             <ul>
