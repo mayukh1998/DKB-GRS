@@ -74,8 +74,8 @@ List <Issue> list = connection.monitor_issue();
     <th onclick="sortTable(4)">Name</th>
     <th onclick="sortTable(5)">Location</th>
     <th>Feedback</th>
-    <th onclick="sortTable(7)">Status</th>
-    <th onclick="sortTable(8)">Department</th>
+    <th onclick="sortTable(6)">Status</th>
+    <th onclick="sortTable(7)">Department</th>
     <th></th>
     <th></th>
 </tr>
