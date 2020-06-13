@@ -42,7 +42,7 @@
         the Chief Minister of the state and share their problems with her. This was a project work that they took up and completed in their final semester.
     </p>
     <p style="text-align: justify;">Apex constitutes of the following students :</p>
-    <img src="images/apex.png" style="align-content: center; height: 60%; width: 60%;" />
+    <img src="images/apex.png" style="align-content: center; height: 60%;" />
 </div>
 </div>  
 </div>
