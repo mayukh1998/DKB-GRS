@@ -65,7 +65,7 @@ alert('Issue Created Successfully. ISSUE ID:- '+m1 );</script>
                             <br />
                             <label for="phn"><strong>Phone Number:</strong></label>
                             <br />
-                            <input type="number" id="phn" name="phn" required />
+                            <input type="number" id="phn" max="99999999999" min="1000000000" placeholder="Enter Phone Number" name="phn" required />
                             <br />
                             <br />
                             <label for="location"><strong>Location:</strong></label>
@@ -119,5 +119,10 @@ alert('Issue Created Successfully. ISSUE ID:- '+m1 );</script>
 <div id="copyright" class="ccontainer" >
 <p>&copy; Team Apex IEM</p>
 </div>
+<script type="text/javascript"> 
+phn.oninput = function () {
+if (this.value.length > 10)
+this.value = this.value.slice(0,10); }
+</script>
 </body>
 </html>
