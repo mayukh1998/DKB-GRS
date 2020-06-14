@@ -16,3 +16,8 @@ Mysql 5.5
 ```
 Jdk 1.8
 ```
+### Deployment
+
+```
+https://dkbgrs.herokuapp.com/
+```
