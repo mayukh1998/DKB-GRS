@@ -85,14 +85,15 @@ List <Issue> list = connection.monitor_issue();
     if(li.getstatus().equals("open")||li.getstatus().equals("verified")){
 %>
 <tr>
+<form action="assignissue">
     <td onclick='event.stopPropagation();return false;' id='priority'>
         <select name="priority" id="priority" class="select">
             <option value="<%=li.getpriority()%>" selected>
                 <%=li.getpriority()%>
             </option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
         </select>
     </td>
     <td>
@@ -136,10 +137,15 @@ List <Issue> list = connection.monitor_issue();
             <option value="Others">Others</option>
         </select>
     </td>
-    <td onclick='event.stopPropagation();return false;'><button type="submit" id="assign" value="assign" onclick="location.href='assignissue?iid=<%=li.getissue_id()%>&prior=<%=li.getpriority()%>&dep=<%=li.getdepartment()%>&stt=<%=li.getstatus()%>';">Assign</button>
+    <td><input  id='iid' name ='iid' value='<%=li.getissue_id()%>' type="hidden">  
+        <input  id='prior' name ='prior' value='<%=li.getpriority()%>' type="hidden">
+        <input  id='dep' name ='dep' value='<%=li.getdepartment()%>' type="hidden">
+        <input  id='stt' name ='stt' value='<%=li.getstatus()%>' type="hidden">
+        <button type="submit" id="assign" value="assign" >Assign</button>
     </td>
     <td onclick='event.stopPropagation();return false;'> <button id="close1" onclick="location.href='closeissue?issue_id=<%=li.getissue_id()%>';">Close Issue</button>
     </td>
+    </form>
     </tr>
     <%}}%>
 
@@ -151,7 +157,7 @@ List <Issue> list = connection.monitor_issue();
 <div id="copyright" class="ccontainer">
 <p>&copy; Team Apex IEM</p>
 </div>
-<script>
+<script>    
 $(".myTable").on("click", "td:not(:last)", function() {
  var issueid = $(this).closest('tr').find("td:eq(2) input").val();
  window.location = 'monitorcmissues.jsp?issue_id=' + issueid;
