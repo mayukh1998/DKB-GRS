@@ -50,7 +50,7 @@ while(it.hasNext()){
 <div id="page" class="container">
 <div id="content">
     <div class="title">
-        <h2>Clerk Resgistration</h2>
+        <h2>Add Clerk</h2>
         <form action="addclerk">
             <div class="formcontainer">
                 <hr />

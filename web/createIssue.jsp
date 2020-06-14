@@ -34,6 +34,7 @@ s7 = session.getAttribute("location").toString(); %>
     <div id="menu" class="container">
         <ul>
             <li><a href="userhome.jsp">Home</a></li>
+            <li class="current_page_item"><a href="createIssue.jsp">Create Issue</a></li>
             <li><a href="myissues.jsp">My Issues</a></li>
             <li><a href="givefeedback.jsp">Feedback</a></li>
             <li><a href="logout.jsp">LogOut</a></li>
@@ -56,39 +57,38 @@ s7 = session.getAttribute("location").toString(); %>
                 <h2><%=s4%></h2>
                 <h2>Create Issue</h2>
             </div>
-            <div id="text1">
+           <div class="formcontainer">
+               <div class="container22">
                 <form action="createuserissue">
-                    <div class="formcontainer">
-                        <hr />
-                        <div class="container22">
-                            <label for="username"><strong>UserId: </strong></label>
-                            <br />
+                        <hr>
+                            <label for="user_id"><strong>UserId: </strong></label>
+                            <br>
                             <input type="text" id="user_id" name="user_id" value="<%=s5%>" class="disable" />
-                            <br />
-                            <br />
+                            <br>
+                            <br>
                             <label for="name"><strong>Name:</strong></label>
-                            <br />
+                            <br>
                             <input type="text" id="name" value=" <%=s4%>" name="name" class="disable" />
-                            <br />
+                            <br>
 
-                            <br />
+                            <br>
                             <label for="email"><strong>Email:</strong></label>
-                            <br />
+                            <br>
                             <input type="email" id="email" value="<%=s1%>" name="user_email" class="disable" />
-                            <br />
-                            <br />
+                            <br>
+                            <br>
                             <label for="phn"><strong>Phone Number:</strong></label>
-                            <br />
+                            <br>
                             <input type="text" id="phn" value="<%=s6%>" name="phn" class="disable" />
-                            <br />
-                            <br />
+                            <br>
+                            <br>
                             <label for="location"><strong>Location:</strong></label>
-                            <br />
+                            <br>
                             <input type="text" id="location" value=" <%=s7%>" name="location" class="disable" />
-                            <br />
-                            <br />
+                            <br>
+                            <br>
                             <label for="dept"><strong>Department:</strong></label>
-                            <br />
+                            <br>
                             <select id="dept" name="dept">
                                 <option value="" selected disabled>Select Department</option>
                                 <option value="Education">Education</option>
@@ -107,21 +107,19 @@ s7 = session.getAttribute("location").toString(); %>
                                 <option value="IT and Electronics">IT and Electronics</option>
                                 <option value="Others">Others</option>
                             </select>
-                            <br />
-                            <br />
+                            <br>
+                            <br>
                             <label for="subject"><strong>Issue Subject:</strong></label>
-                            <br />
+                            <br>
                             <input type="text" id="subject" placeholder="Enter Subject(within 50 chars)" name="subject" required />
-                            <br />
-                            <br />
+                            <br>
+                            <br>
                             <label for="decrip"><strong>Issue Description:</strong></label>
-                            <br />
+                            <br>
                             <textarea id="descrip" rows="4" cols="50" name="descrip" placeholder="Enter Description (within 300 chars)" required></textarea>
-                            <br />
-                        </div>
+                            <br>
                         <button type="submit">Create Issue</button>
                         <button type="reset">Reset</button>
-                    </div>
                 </form>
             </div>
         </div>

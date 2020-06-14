@@ -48,8 +48,9 @@ alert('Issue Created Successfully. ISSUE ID:- '+m1 );</script>
         <div id="right-pane">
             <div class="title">
                 <h2>Create Issue</h2>
+            </div>
+            <div class="formcontainer">
                 <form action="createclerkissue">
-                    <div class="formcontainer">
                         <hr />
                         <div class="container22">
                             <label for="name"><strong>Name of Complainer:</strong></label>
@@ -109,9 +110,8 @@ alert('Issue Created Successfully. ISSUE ID:- '+m1 );</script>
                         <button type="submit">Create Issue</button>
                         <button type="reset">Reset</button>
                         </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
         </div>
     </div>
 </div>

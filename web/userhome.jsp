@@ -45,6 +45,7 @@ session.setAttribute("phn", s6);
     <div id="menu" class="container">
         <ul>
             <li class="current_page_item"><a href="userhome.jsp">Home</a></li>
+            <li><a href="createIssue.jsp">Create Issue</a></li>
             <li><a href="myissues.jsp">My Issues</a></li>
             <li><a href="givefeedback.jsp">Feedback</a></li>
             <li><a href="logout.jsp">LogOut</a></li>

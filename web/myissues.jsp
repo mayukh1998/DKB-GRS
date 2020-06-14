@@ -32,6 +32,7 @@ s7 = session.getAttribute("location").toString(); %>
     <div id="menu" class="container">
         <ul>
             <li><a href="userhome.jsp">Home</a></li>
+            <li><a href="createIssue.jsp">Create Issue</a></li>
             <li class="current_page_item"><a href="myissues.jsp">My Issues</a></li>
             <li><a href="givefeedback.jsp">Feedback</a></li>
             <li><a href="logout.jsp">LogOut</a></li>
