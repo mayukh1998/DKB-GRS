@@ -6,6 +6,7 @@ package connection;
 
 import java.util.ArrayList;
 import java.util.*;
+import java.util.logging.Logger;
 
 
 public class RegistrationManager
@@ -28,7 +29,7 @@ public class RegistrationManager
                         k = k+1;
                         h = Issue.insertUser(un, n, p, e, ph, l, k);
         }catch(Exception ex){
-		System.out.println("Error during updation"+ex);
+		Logger.getLogger(ex.toString());
 		}
        return h;
 
@@ -60,7 +61,7 @@ public class RegistrationManager
             }
                         h = Issue.insertMinister(un, n, p, dept, k);
         }catch(Exception ex){
-		System.out.println("Error during updation"+ex);
+		Logger.getLogger(ex.toString());
 		}
        return h;
     }
@@ -99,7 +100,7 @@ public class RegistrationManager
             }
             h = Issue.insertClerk(un, n, p, cid);
         }catch(Exception ex){
-            System.out.println("Error during updation"+ex);
+            Logger.getLogger(ex.toString());
 	}
     return h;
     }

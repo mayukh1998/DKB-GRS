@@ -15,7 +15,6 @@ public class LoginManager
     public static String UserLogin(String username,String password)
     {
         String status = null;
-        String userid= null;
         List <Issue> userlist = Issue.getuserlist();
         outer:
         for (Issue i:userlist)
@@ -24,8 +23,7 @@ public class LoginManager
             {
                 if(i.getpwd().equals(password))
                     {
-                    userid = i.getuser();
-                    status = userid;
+                    status = i.getuser();
                     break outer;
                 }
             }
@@ -50,7 +48,6 @@ public class LoginManager
     public static String MinisterLogin(String username,String password)
     {
         String status = null;
-        String userid= null;
         String verifyuser=null;
         List <Issue> userlist = Issue.getministerlist();
         outer:
@@ -60,8 +57,7 @@ public class LoginManager
             {
                 if(i.getpwd().equals(password))
                     {
-                    userid = i.getuser();
-                    status = userid;
+                    status = i.getuser();
                     break outer;
                 }
             }
@@ -82,7 +78,6 @@ public class LoginManager
     public static String ClerkLogin(String username,String password)
     {
         String status = null;
-        String userid= null;
         List <Issue> clerklist = Issue.getclerklist();
         outer:
         for (Issue i:clerklist)
@@ -91,8 +86,7 @@ public class LoginManager
             {
                 if(i.getpwd().equals(password))
                     {
-                    userid = i.getuser();
-                    status = userid;
+                    status = i.getuser();
                     break outer;
                 }
             }

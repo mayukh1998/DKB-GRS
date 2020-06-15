@@ -2,12 +2,11 @@ package connection;
 
 
 import java.util.List;
-import java.util.*;
 import java.io.*;
 import java.net.URL;
 import java.net.HttpURLConnection;
-import java.net.URLEncoder;      
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.logging.Logger;
 
 
 
@@ -108,7 +107,7 @@ public class Issuemanager
                         int h = Issue.update_issue(user, prior, id, dept, sta, feedback, feedback_rate, wd);
 
                         phn="91"+phn;        
-                        String apiKey = "apikey=" + "EXW1uyd9D9s-Qv2hLuQWaQl3qoBDQyAeIAg6IexnE4";
+                        String apiKey = "apikey=" + "c1PY96paSZo-qE05pifFw5Wia0f0Z2AfyHs5UfedcA";
                         //new key : EXW1uyd9D9s-aqWngJiMVc6JKVx98z6VjDhHbFVEBO
 			String message = "&message=" + "Your Issue has been resolved. Please login to the portal to give your feedback.";
 			String sender = "&sender=" + "TXTLCL";
@@ -127,7 +126,7 @@ public class Issuemanager
 			}
 			rd.close(); 
         }
-       catch(Exception e1){
+       catch(IOException e1){
                 System.out.println(e1.getMessage());
                 }
        return phn; 
@@ -170,8 +169,8 @@ public class Issuemanager
              h = Issue.insert_issue(k,s,des,l,un,n,sta,fd,rt,d,pr,ph,e,date1,min);
              ar[1] = Integer.parseInt(k);
              ar[0] = h;
-            } catch (Exception e1) {
-             System.out.println(e1.getMessage());
+            } catch (NumberFormatException e1) {
+             Logger.getLogger(e1.toString());
             }
   return ar;
     }
@@ -208,7 +207,7 @@ public class Issuemanager
                 }
                 catch(Exception e1)
                 {
-                System.out.println(e1.getMessage());
+                Logger.getLogger(e1.toString());
                 }
        return ret; 
     }
@@ -263,7 +262,7 @@ public class Issuemanager
                 } 
       
       catch (Exception e1){
-                System.out.println(e1.getMessage());
+                Logger.getLogger(e1.toString());
                 }
        return stat; 
     }

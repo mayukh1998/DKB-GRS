@@ -2,10 +2,6 @@ package connection;
 
 
 import java.util.*;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,7 +82,7 @@ public class Usermanager {
         res = 2;
        }
     } catch (Exception e1) {
-    System.out.println(e1.getMessage());
+    Logger.getLogger(e1.toString());
     }
   return res;
  }
@@ -122,14 +118,12 @@ public class Usermanager {
         e = issue.getemail();
         date1 = issue.getdate();
         min = issue.getminfeed();
-        
-        
         h = Issue.insert_issue(k,s,des,l,un,n,sta,fd,rt,d,pr,ph,e,date1,min);
 
    ar[1] = Integer.parseInt(k);
    ar[0] = h;
   } catch (Exception e1) {
-   System.out.println(e1.getMessage());
+   Logger.getLogger(e1.toString());
   }
   return ar;
  }
@@ -170,7 +164,7 @@ public class Usermanager {
    Issue.update_issue(user, prior, issue_id, dept, status, feedback, feedback_rate, minfeed);
    h = rt;
   }catch(Exception e1){
-   System.out.println(e1.getMessage());
+   Logger.getLogger(e1.toString());
   }
   return h;
  }
