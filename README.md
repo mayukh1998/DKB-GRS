@@ -1,9 +1,8 @@
 # DKB-GRS
 
-A grievance redressal system for didi ke bolo portal.
+A Grievance Redressal System for Didi ke Bolo portal.
 
-<p align="center"><img src ="web/images/Team_Apex.png" width="460" height="300" ></p>
-
+Read More:http://103.127.146.165/wiki/index.php?title=Apex:Main
 
 ### Prerequisites
 
@@ -15,4 +14,9 @@ Mysql 5.5
 ```
 ```
 Jdk 1.8
+```
+### Deployment
+
+```
+https://dkbgrs.herokuapp.com/
 ```
