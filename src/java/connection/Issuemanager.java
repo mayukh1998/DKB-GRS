@@ -184,10 +184,10 @@ public class Issuemanager
     
     
     
-    
-    
-    
-    
+ /**
+ *
+ * @author Mayukh
+ */   
     
     
     public static String assignissue(String prior, String dept, String sta, String issue_id)
@@ -222,10 +222,10 @@ public class Issuemanager
     
     
     
-    
-    
-    
-    
+ /**
+ *
+ * @author Mayukh
+ */    
     
     
     public static String closeissue(String issue_id)
