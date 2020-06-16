@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author mayuk
+ * @author mayukh
  */
 public class IssueTest {
     

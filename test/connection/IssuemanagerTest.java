@@ -102,7 +102,10 @@ public class IssuemanagerTest {
 
     
      */
-    
+/**
+ *
+ * @author Mayukh
+ */      
     
     
     @Test
@@ -121,6 +124,11 @@ public class IssuemanagerTest {
     }
 
     
+    
+/**
+ *
+ * @author Ayush
+ */ 
     
     
     
@@ -156,7 +164,10 @@ public class IssuemanagerTest {
         assertArrayEquals(expResult, result);
     }
 
-  
+ /**
+ *
+ * @author Mayukh
+ */   
     
     
     @Test
@@ -171,7 +182,10 @@ public class IssuemanagerTest {
         assertEquals(expResult, result);
     }
     
-   
+/**
+ *
+ * @author Mayukh
+ */    
     
     
     @Test

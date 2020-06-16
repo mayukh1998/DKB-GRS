@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package connection;
 
 import java.util.ArrayList;
@@ -65,10 +61,11 @@ public class UsermanagerTest {
     }
 
     
+/**
+ *
+ * @author Ayush
+ */ 
     
-    /**
-     * Test of user_create_issue method, of class Usermanager.
-     */
     @Test
     public void testUser_create_issue() throws Exception {
         int k=0;
@@ -104,9 +101,11 @@ public class UsermanagerTest {
 
     
     
-    /**
-     * Test of givefeedback method, of class Usermanager.
-     */
+/**
+ *
+ * @author Ayush
+ */ 
+    
     @Test
     public void testGivefeedback() throws Exception {
         System.out.println("givefeedback");
