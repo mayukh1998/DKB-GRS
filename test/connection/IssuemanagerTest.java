@@ -165,7 +165,7 @@ public class IssuemanagerTest {
         String prior = "high";
         String dept = "food";
         String sta = "assigned";
-        String issue_id = "1100019";
+        String issue_id = "1100021";
         String expResult = issue_id;
         String result = Issuemanager.assignissue(prior, dept, sta, issue_id);
         assertEquals(expResult, result);
@@ -177,7 +177,7 @@ public class IssuemanagerTest {
     @Test
     public void testCloseissue() {
         System.out.println("closeissue");
-        String issue_id = "1100019";
+        String issue_id = "1100013";
         String expResult = "closed";
         String result = Issuemanager.closeissue(issue_id);
         assertEquals(expResult, result);

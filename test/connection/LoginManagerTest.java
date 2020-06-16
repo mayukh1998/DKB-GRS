@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author mayuk
+ * @author kushanava
  */
 public class LoginManagerTest {
     

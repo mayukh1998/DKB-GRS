@@ -15,8 +15,12 @@ import java.util.logging.Logger;
 public class Issuemanager
 {
     
+/**
+ *
+ * @author mayukh
+ */ 
     
-    
+       
     
     public List < Issue > clerk_view_issue() throws ClassNotFoundException
     {
@@ -37,9 +41,12 @@ public class Issuemanager
      }
     
     
+/**
+ *
+ * @author mayukh
+ */ 
     
-    
-    
+      
     
     
     
@@ -73,10 +80,10 @@ public class Issuemanager
     }
    
     
-    
-    
-    
-    
+/**
+ *
+ * @author mayukh
+ */ 
     
     
     
@@ -107,7 +114,7 @@ public class Issuemanager
                         int h = Issue.update_issue(user, prior, id, dept, sta, feedback, feedback_rate, wd);
 
                         phn="91"+phn;        
-                        String apiKey = "apikey=" + "c1PY96paSZo-qE05pifFw5Wia0f0Z2AfyHs5UfedcA";
+                        String apiKey = "apikey=" + "EXW1uyd9D9s-aqWngJiMVc6JKVx98z6VjDhHbFVEBO";
                         //new key : EXW1uyd9D9s-aqWngJiMVc6JKVx98z6VjDhHbFVEBO
 			String message = "&message=" + "Your Issue has been resolved. Please login to the portal to give your feedback.";
 			String sender = "&sender=" + "TXTLCL";
@@ -134,10 +141,10 @@ public class Issuemanager
     
     
     
-    
-    
-    
-    
+/**
+ *
+ * @author Ayush
+ */
     
     
     

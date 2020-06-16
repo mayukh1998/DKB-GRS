@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author mayuk
+ * @author kushanava
  */
 public class UsermanagerTest {
     
@@ -54,13 +54,10 @@ public class UsermanagerTest {
     }
     
     
-    /**
-     * Test of acquireissue method, of class Usermanager.
-     */
     @Test
     public void testAcquireissue() {
         System.out.println("acquireissue");
-        String issue_id = "1100015";
+        String issue_id = "1100021";
         String ui = "102";
         int expResult = 1;
         int result = Usermanager.acquireissue(issue_id, ui);

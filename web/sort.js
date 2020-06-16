@@ -17,7 +17,7 @@ while (switching) {
                 break;
             }
         } else if (dir == "desc") {
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            if (x.innerHTML.toLowerCase().trim() < y.innerHTML.toLowerCase().trim()) {
                 shouldSwitch= true;
                 break;
             }

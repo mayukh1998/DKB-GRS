@@ -12,7 +12,10 @@ import java.util.logging.Logger;
 public class Usermanager {
     
     
-    
+/**
+ *
+ * @author mayukh
+ */    
     
     
  public static List < Issue > user_view_issue(String userid) throws ClassNotFoundException {
@@ -37,11 +40,10 @@ public class Usermanager {
 
 
 
-
- 
- 
-
-
+/**
+ *
+ * @author mayuk
+ */
 
 
  public static int acquireissue(String issue_id, String ui) {
@@ -88,12 +90,10 @@ public class Usermanager {
  }
 
 
-
-
- 
- 
-
-
+/**
+ *
+ * @author Ayush
+ */ 
 
 
  public static int[] user_create_issue(Issue issue) throws ClassNotFoundException {
@@ -130,7 +130,10 @@ public class Usermanager {
 
 
 
-
+/**
+ *
+ * @author Ayush
+ */
 
  
  
